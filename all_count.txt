@@ -1,0 +1,252 @@
+Lung Opacity: 511
+Cardiomegaly: 371
+Pulmonary Atelectasis: 252
+Calcified Granuloma: 233
+Calcinosis: 213
+Hyperdistention: 201
+Vertebral Deformity: 182
+Pleural Effusion: 137
+Degenerative Spine Disease: 136
+Atherosclerosis: 125
+Lung Nodule: 113
+Degenerative Disease: 112
+Granulomatous Disease: 107
+Scar: 98
+Airspace Disease: 93
+Lung Cicatrix: 70
+Pulmonary Congestion: 68
+Emphysema: 59
+Thoracic Aortic Tortuosity: 57
+Infiltrate: 56
+Granuloma: 53
+Bone Fractures: 52
+Thoracic Spondylosis: 49
+Chronic Obstructive Pulmonary Disease: 48
+Flattened Diaphragm: 45
+Hiatal Hernia: 44
+Pulmonary Edema: 43
+Bilateral Lung Atelectasis: 42
+Hypoinflation: 37
+Diaphragmatic Elevation: 37
+Pulmonary Emphysema: 36
+Thoracic Osteophytes: 35
+Arthritis: 34
+Atelectasis: 34
+Diaphragmatic Eventration: 34
+Kyphosis: 33
+Multiple Calcified Granulomas: 31
+Pneumonia: 30
+Lung Calcinosis: 29
+Costophrenic Angle Blunting: 28
+Spinal Fusion: 26
+Interstitial Opacity: 24
+Elevated Diaphragm: 24
+Spinal Osteophyte: 24
+Hilar Calcinosis: 24
+Foreign Body: 24
+Lung Density: 23
+Consolidation: 23
+Bone Diseases, Metabolic: 23
+Diffuse Interstitial Markings: 22
+Pneumothorax: 22
+Hilar Calcification: 21
+Right Pleural Effusion: 19
+Rib Fractures: 19
+Lung Lucency: 19
+Hyperlucent Lung: 18
+Apical Scarring: 18
+Interstitial Lung Disease: 16
+Bilateral Basal Pneumonia: 16
+Lingular Opacity: 16
+Blunted Costophrenic Angle: 14
+Deformity: 14
+Lymph Node Calcinosis: 14
+Fracture: 14
+Spondylosis: 14
+Pulmonary Fibrosis: 14
+Mediastinal Enlargement: 13
+Right Basal Airspace Disease: 12
+Cardiac Shadow Enlargement: 11
+Pleural Thickening: 10
+Right Lower Lobe Pneumonia: 10
+Pulmonary Consolidation: 9
+Mass: 9
+Heart Failure: 9
+Costophrenic Cicatrix: 9
+Volume Loss: 8
+Metabolic Bone Disease: 8
+Mediastinal Prominence: 8
+Degenerative Changes: 8
+Retrocardiac Opacity: 7
+Bilateral Hilar Calcinosis: 7
+Sclerosis: 7
+Hypertension, Pulmonary: 7
+Pulmonary Artery Enlargement: 6
+Left Lower Lobe Opacity: 6
+Right Basal Opacity: 6
+Spinal Degeneration: 6
+Subcutaneous Emphysema: 6
+Mastectomy: 6
+Bilateral Lower Lobe Opacity: 6
+Pericardial Effusion: 6
+Hilar Lymphadenopathy: 6
+Cavitation: 6
+Aortic Tortuosity: 5
+Right Rib Deformity: 5
+Thoracic Deformity: 5
+Bronchiectasis: 5
+Patchy Lung Opacity: 5
+Rib Opacity: 5
+Lung Hyperdistention: 5
+Diffuse Idiopathic Skeletal Hyperostosis: 5
+Pneumonectomy: 5
+Bullous Emphysema: 4
+Left Pleural Effusion: 4
+Bronchovascular Markings: 4
+Tracheal Calcinosis: 4
+Lumbar Vertebrae Degeneration: 4
+Spinal Deformity: 4
+Scoliosis: 4
+Pneumoperitoneum: 4
+Aortic Aneurysm: 4
+Lung Calcification: 4
+Cystic Fibrosis: 4
+Hydropneumothorax: 4
+Abdominal Calcification: 4
+Rib Calcinosis: 4
+Lung Nodules: 3
+Hilar Calcified Granuloma: 3
+Dislocation: 3
+Pectus Carinatum: 3
+Degenerative Spine: 3
+Left Upper Lobe Opacity: 3
+Right Upper Lobe Opacity: 3
+Cicatrix: 3
+Sarcoidosis: 3
+Lung Mass: 3
+Rib Density: 3
+Lymphadenopathy: 3
+Lucency: 3
+Pulmonary Artery Prominence: 3
+Paratracheal Calcified Granuloma: 2
+Bilateral Lower Lobe Pulmonary Fibrosis: 2
+Diaphragmatic Lucency: 2
+Thoracic Mass: 2
+Degenerative Lumbar Vertebrae: 2
+Rib Deformities: 2
+Obscured Lung Apex: 2
+Shoulder Implant: 2
+Left Pleural Apex Thickening: 2
+Tuberculosis: 2
+Round Density: 2
+Hernia, Diaphragmatic: 2
+Pleural Nodule: 2
+Diaphragmatic Flattening: 2
+Bronchial Thickening: 2
+Clavicle Fracture: 2
+Lung Airspace Disease: 2
+Pulmonary Opacity: 2
+Pleural Calcinosis: 2
+Thoracic Opacity: 2
+Lung Deformity: 2
+Kyphosis Thoracic Vertebrae Mild: 2
+Costophrenic Angle Density: 2
+Left Ventricular Enlargement: 2
+Interstitial Infiltrate: 2
+Hilar Opacity: 2
+Thoracic Scoliosis: 2
+Alveolar Opacity: 1
+Cardiophrenic Angle Density: 1
+Thoracic Vertebral Deformity: 1
+Osteoporosis: 1
+Shoulder Dislocation: 1
+Shoulder Degeneration: 1
+Sternal Density: 1
+Supracardiac Opacity: 1
+Right Rib Expansile Lesions: 1
+Shoulder Osteophytes: 1
+Left Apical Opacity: 1
+Lung Volume Loss: 1
+Humerus Fracture: 1
+Pleural Density: 1
+Tortuous Trachea: 1
+Blunted Posterior Sulcus: 1
+Fibrosis: 1
+Humerus Arthritis: 1
+Left Upper Lobe Lung Cysts: 1
+Right Clavicle Deformity: 1
+Right Hilum Opacity: 1
+Mediastinal Colonic Interposition: 1
+Humerus Sclerosis: 1
+Spinal Sclerosis: 1
+Cholelithiasis: 1
+Right Anterior Prominent Ribs: 1
+Bronchitis: 1
+Sternum Deformity: 1
+Mediastinal Lucency: 1
+Cardiac Lucency: 1
+Hypovolemia: 1
+Atrial Enlargement: 1
+Pulmonary Nodules: 1
+Pulmonary Calcification: 1
+Pulmonary Deformity: 1
+Thoracic Nodules: 1
+Costophrenic Angle Opacities: 1
+Paratracheal Density: 1
+Breast Deformity: 1
+Abdominal Deformity: 1
+Thoracic Calcifications: 1
+Mediastinal Deformity: 1
+Thoracic Volume Loss: 1
+Vertebral Fractures: 1
+Prominent Markings: 1
+Atrial Prominence: 1
+Shoulder Deformity: 1
+Hemopneumothorax: 1
+Spinal Arthritis: 1
+Mitral Valve Density: 1
+Thoracic Aorta Enlargement: 1
+Paratracheal Thickening: 1
+Lung Vascular Blunting: 1
+Mediastinal Calcinosis: 1
+Breast Mass: 1
+Aortic Calcification: 1
+Vertebral Opacity: 1
+Bronchiolitis: 1
+Calcinosis Abdomen Left: 1
+Calcification: 1
+Retrocardiac Density: 1
+Opacity Lung Streaky: 1
+Consolidation Lung Hilum Diffuse: 1
+Emphysema Severe: 1
+Lung Scar: 1
+Pulmonary Atelectasis Apex Right: 1
+Pulmonary Atelectasis Base Left Streaky Mild: 1
+Deformity Breast: 1
+Shoulder Foreign Body: 1
+Lung Bilateral Hyperdistention Mild: 1
+Airspace Disease Lung Base Pulmonary Alveoli Right: 1
+Cervical Osteophytes: 1
+Thoracic Density: 1
+Upper Lobe Density: 1
+Cardiac Shadow Irregularity: 1
+Thoracic Vertebral Degeneration: 1
+Right Lower Lobe Opacity: 1
+Lung Vessel Enlargement: 1
+Osteophytes: 1
+Coronary Calcification: 1
+Granulomas: 1
+Thoracic Masses: 1
+Humerus Deformity: 1
+Thoracic Calcified Granuloma: 1
+Bilateral Lung Base Opacities: 1
+Right Lung Base Interstitial Disease: 1
+Lung Granulomas: 1
+Pleural Sclerosis: 1
+Bilateral Lung Lymph Node Calcinosis: 1
+Right Paratracheal Mediastinal Enlargement: 1
+Right Lung Base Density: 1
+Lung Fibrosis: 1
+Bilateral Lower Lobe Nodules: 1
+Interstitial Markings: 1
+Hemothorax: 1

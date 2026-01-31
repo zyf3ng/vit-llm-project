@@ -1,0 +1,1681 @@
+Emphysema
+Deformity/lumbar vertebrae/severe
+Opacity/ribs/left
+Granulomatous Disease/right
+Deformity/mediastinum/right
+Calcified Granuloma/lung/hilum/bilateral
+Opacity/lung/base/bilateral/multiple
+Infiltrate/lung/interstitial
+Sutures/lung/apex/left
+Pneumothorax
+Opacity/lung/base/left/interstitial/diffuse
+Diaphragmatic Eventration/mild
+Opacity/right/paratracheal/prominent
+Opacity/lung/base/bilateral/interstitial
+Thoracic Vertebrae/degenerative/chronic
+Deformity/ribs/right/multiple/healed
+Opacity/thorax/right
+Technical Quality of Image Unsatisfactory
+Pulmonary Congestion/mild
+Foreign Bodies/breast
+Spine/degenerative/moderate
+Pleural Effusion/right/small
+Spondylosis/mild
+Heart/apex/prominent
+Fractures, Bone/shoulder/right
+Markings/lung/bilateral/prominent/chronic
+Pulmonary Atelectasis/bilateral/patchy
+Consolidation/lung/hilum/diffuse
+Cardiac Shadow/right/prominent
+Calcinosis/right/retrocardiac
+Cicatrix/scattered/multiple
+Osteophyte/spine/multiple/mild
+Opacity/lung/upper lobe/hilum/left
+Deformity/thoracic vertebrae/anterior/mild
+Osteophyte/spine/multiple
+Opacity/lung/middle lobe/right/large
+Mediastinum/paratracheal/enlarged
+Mass/lung/upper lobe/right/posterior
+Opacity/lung/bilateral/interstitial/prominent/chronic
+Diaphragm/posterior/flattened
+Infiltrate/lung/lingula
+Opacity/lung/lingula/posterior
+Consolidation/lung/lower lobe/left
+Cicatrix/left
+Mass/lung/middle lobe/right/round
+Surgical Instruments/mediastinum/left
+Contrast Media/abdomen
+Dislocations/shoulder/left/chronic
+Osteophyte/thoracic vertebrae/multiple
+Infiltrate/lung/base/right
+Opacity/lung/middle lobe/bilateral
+Thickening/pleura/bilateral/mild
+Osteophyte/thoracic vertebrae/degenerative/multiple/severe
+Opacity/ribs/left/anterior/round
+Density/lung/hilum/right/round
+Spine/degenerative/chronic/mild
+Scoliosis/thoracic vertebrae/severe
+Pulmonary Atelectasis/lingula/mild
+Calcified Granuloma/lung/lower lobe/left/anterior
+Spondylosis/degenerative
+Calcinosis/mediastinum/lymph nodes/left
+Nodule/lung/lingula/small
+Osteophyte/lumbar vertebrae/multiple
+Tuberculosis/lung/healed
+Nodule/lung/right
+Airspace Disease/lung/retrocardiac/mild
+Opacity/lung/base/right/large
+Deformity/mediastinum/left/posterior/focal
+Pulmonary Fibrosis/apex/left/chronic
+Pulmonary Atelectasis/costophrenic angle/bilateral
+Opacity/pleura/right
+Bone Diseases, Metabolic/diffuse
+Granuloma/thorax/multiple
+Thickening/pleura/upper lobe/right
+Calcified Granuloma/scattered/multiple
+Fractures, Bone/clavicle/right/healed
+Cicatrix/lung/focal/multiple
+Spine/degenerative/multiple
+Pneumothorax/apex/left/small
+Emphysema/bilateral/chronic/severe
+Infiltrate/lung/hilum/mild
+Calcified Granuloma/lung/lower lobe/right/posterior
+Surgical Instruments/abdomen/left
+Costophrenic Angle/right/obscured
+Sclerosis
+Cysts/lung/upper lobe/right
+Mediastinum/right/paratracheal/prominent
+Opacity/lung/upper lobe/left/focal/small
+Pulmonary Atelectasis/lower lobe/left/mild
+Opacity/lung/base/left/streaky/mild
+Calcified Granuloma/lung/hilum/right/large
+Calcinosis/lung/upper lobe/right/small
+Sutures/mediastinum
+Shift/mediastinum/left
+Mass/lung/hilum/right
+Bone Diseases, Metabolic/thoracic vertebrae
+Calcinosis/lung/lower lobe/left/round
+Nodule/lung/upper lobe/right/multiple
+Opacity/lung/bilateral/interstitial/diffuse/prominent
+Hernia, Diaphragmatic/small
+Granuloma/scattered/multiple
+Opacity/lung/base/right/streaky/multiple
+Deformity/sternum/anterior
+Thorax/left/small
+Sclerosis/thoracic vertebrae/mild
+Calcinosis/bilateral/diffuse
+Airspace Disease/lung/base/right/streaky
+Airspace Disease/lung/bilateral/patchy
+Calcinosis/abdomen/right
+Airspace Disease/lung/base/pulmonary alveoli/right
+Foreign Bodies/thorax/left
+Costophrenic Angle/blunted/mild
+Deformity/spine
+Deformity/thoracic vertebrae/mild
+Lung/hypoinflation/moderate
+Opacity/supracardiac
+Heart Failure/mild
+Opacity/lung/middle lobe/right/patchy
+Atherosclerosis/aorta, thoracic/mild
+Nodule/lung/upper lobe/left/round
+Granuloma/right
+Costophrenic Angle/right/posterior/blunted/mild
+Granuloma/lung/multiple
+Markings/lung/interstitial/mild
+Airspace Disease/lung/left
+Opacity/lung/apex/left/patchy
+Density/ribs/bilateral/posterior/round
+Subcutaneous Emphysema/neck/severe
+Density/lung/lower lobe/left/round/multiple
+Surgical Instruments/thorax
+Fractures, Bone/ribs/left/posterior/multiple
+Surgical Instruments/breast/right
+Calcified Granuloma/lung/base/right/small
+Mediastinum/prominent/mild
+Cardiac Shadow/borderline
+Airspace Disease/lung/apex/left/patchy
+Pulmonary Congestion/upper lobe/mild
+Cicatrix/costophrenic angle/left
+Markings/bilateral/bronchovascular
+Deformity/thoracic vertebrae
+Thoracic Vertebrae/degenerative/moderate
+Pulmonary Fibrosis/bilateral/diffuse
+Lung/hilum/enlarged
+Spinal Fusion/thoracic vertebrae
+Markings/lung/base/bilateral/interstitial
+Surgical Instruments/breast/left
+Lung/interstitial/abnormal
+Lung/left/hyperdistention
+Scoliosis/mild
+Sclerosis/humerus/right
+Aorta/retrocardiac/enlarged
+Density/costophrenic angle/left/round
+Lung/bilateral/hyperdistention
+Aortic Aneurysm
+Lucency/thorax/scattered/multiple
+Costophrenic Angle/right/posterior/blunted
+Implanted Medical Device/left
+Granuloma/lung/hilum/right/scattered/multiple
+Opacity/lung/upper lobe/right/round
+Calcinosis/lung/upper lobe/left
+Hemopneumothorax/right/moderate
+Calcinosis/lung/lingula
+Calcified Granuloma/lung/left
+Deformity/mediastinum/severe
+Pleural Effusion/posterior
+Markings/lung/hilum
+Consolidation/lung/upper lobe/left
+Lung/hilum/right/prominent
+Density/mitral valve
+Cervical Vertebrae/degenerative
+Pleural Effusion/bilateral/large
+Spinal Fusion
+Opacity/lung/lower lobe/bilateral/interstitial
+Hypovolemia/lung/apex
+Lymph Nodes/bilateral/enlarged
+Pulmonary Edema/base/bilateral/interstitial
+Calcinosis/lung/hilum/lymph nodes/left/small
+Airspace Disease/lung/hilum/right
+Opacity/lung/hilum/mild
+Lucency/ribs/right/posterior
+Scoliosis/lumbar vertebrae/severe
+Thickening/pleura/apex/left/mild
+Calcinosis/mediastinum/anterior
+Atherosclerosis/mild
+Cicatrix/lung/lower lobe/left/patchy
+Opacity/lung/lower lobe/left/posterior
+Calcified Granuloma/lung/base/left/small
+Lung/hypoinflation/chronic
+Foreign Bodies/left
+Calcified Granuloma/thorax/right/small
+Arthritis/cervical vertebrae
+Kyphosis/thoracic vertebrae/mild
+Pleural Effusion/costophrenic angle/left/mild
+Nodule/thorax/left
+Opacity/lung/apex/right/patchy
+Opacity/lung/base/bilateral/mild
+Lung/hilum/interstitial/prominent
+Osteophyte/thoracic vertebrae/multiple/mild
+Pulmonary Edema/pulmonary alveoli
+Pleural Effusion/right/focal
+Pulmonary Atelectasis/lingula/focal
+Opacity/lung/apex/bilateral
+Density/adipose tissue/posterior/round/small
+Breast Implants
+Mass/thorax/left
+Granulomatous Disease/mild
+Thoracic Vertebrae/degenerative
+Infiltrate/lung/middle lobe/right/patchy
+Opacity/lung/middle lobe/right/scattered
+Pulmonary Atelectasis/base/bilateral/patchy/streaky
+Foreign Bodies/thoracic vertebrae
+Pulmonary Emphysema/bilateral
+Spinal Fusion/lumbar vertebrae
+Scoliosis/thoracic vertebrae/left
+Surgical Instruments/abdomen/multiple
+Granuloma/ribs/right/posterior
+Calcinosis/spine
+Cicatrix/lung/base/right
+Sulcus/bilateral/blunted/mild
+Aorta, Thoracic/tortuous
+Shoulder/right/prominent/mild
+Opacity/lung/base/left/chronic
+Airspace Disease/lung/lower lobe/right/patchy
+Osteophyte/thoracic vertebrae/multiple/small
+Calcified Granuloma/heart/left/small
+Lung/left/hypoinflation
+Pulmonary Fibrosis/apex/right/mild
+Density/pleura/right/severe
+Infiltrate/lung/lower lobe/left/patchy/streaky
+Granuloma/lung/upper lobe/right/round/small
+Lung/hyperdistention/severe
+Calcified Granuloma/thorax
+Granuloma/lung/middle lobe/right
+Cicatrix/lung/base/left/mild
+Lucency/diaphragm
+Opacity/lung/apex/left/irregular
+Airspace Disease/lung/right
+Arthritis/thoracic vertebrae/mild
+Shift/mediastinum
+Nodule/lung/base
+Cicatrix/lung/apex/right/streaky
+Opacity/lung/right
+Opacity/thorax/mild
+Diaphragmatic Eventration/left
+Opacity/lung/lower lobe/right/mild
+Markings/lung/right/bronchovascular
+Cavitation/lung/apex/right
+Calcinosis/pleura/multiple
+Pulmonary Atelectasis/focal
+Mass/lung/middle lobe/right
+Blood Vessels/lung/prominent
+Fractures, Bone/ribs/multiple/healed
+Cavitation/lung/upper lobe/right
+Kyphosis/severe
+Infiltrate/lung/upper lobe/bilateral
+Granuloma/lung/apex/right
+Deformity/humerus/right
+Spondylosis/thoracic vertebrae/mild
+Arthritis/cervical vertebrae/degenerative
+Scoliosis
+Opacity/lung/retrocardiac/focal/small
+Opacity/thorax/scattered
+Calcinosis/abdomen/multiple
+Deformity/breast/right
+Opacity/multiple
+Cicatrix/lung/base/right/mild
+Calcinosis/aorta, thoracic
+Markings/lung/upper lobe/right/interstitial/prominent
+Bone Diseases, Metabolic/thoracic vertebrae/diffuse
+Aorta/obscured
+Density/right/paratracheal/prominent/mild
+Diaphragmatic Eventration/right/anterior
+Opacity/lung/upper lobe/right/patchy/streaky
+Opacity/lung/upper lobe/right/patchy/mild
+Density/thorax/scattered
+Pneumothorax/right/small
+Infiltrate/lung/hilum/right/mild
+Pneumonectomy/lung/lower lobe/right
+Density/lung/lower lobe/right/patchy
+Thickening/lung/lower lobe/bronchi/bilateral
+Opacity/lung/upper lobe/left/small
+Nodule/lung/apex/right
+Aorta, Thoracic/tortuous/mild
+Density/costophrenic angle/sulcus/right
+Calcified Granuloma/lung/scattered/multiple/small
+Cicatrix/lung/apex/bilateral
+Fractures, Bone/lumbar vertebrae/severe
+Opacity/lung/lingula/small
+Pleural Effusion/right/severe
+Shoulder/right/degenerative/severe
+Pulmonary Artery/prominent/mild
+Sulcus/right/posterior/obscured
+Deformity/ribs/left/multiple
+Foreign Bodies/abdomen
+Pulmonary Fibrosis
+Calcified Granuloma/multiple
+Cardiac Shadow/enlarged/borderline
+Calcinosis/lung/bilateral/round/multiple/small
+Opacity/ribs/anterior
+Aorta/tortuous
+Pleural Effusion/left
+Pneumothorax/upper lobe/left/small
+Airspace Disease/lung/base
+Calcinosis/aorta/lymph nodes
+Stents/abdomen/right
+Heart/obscured
+Spondylosis/thoracic vertebrae
+Pulmonary Congestion/prominent
+Calcinosis/mediastinum/lymph nodes/right/large/chronic
+Infiltrate/lung/lower lobe/left
+Opacity/lung/upper lobe/left/round
+Opacity/lung/base/bilateral/interstitial/patchy
+Infiltrate/lung/base/bilateral/mild
+Diaphragm/posterior/flattened/mild
+Spine/degenerative
+Pleural Effusion/left/moderate
+Heart Atria/right/prominent
+Nodule/lung/bilateral/round/multiple/small
+Cicatrix/pleura/right
+Diaphragmatic Eventration/right/mild
+Consolidation/lung/lower lobe/right/posterior/focal
+Markings/lung/interstitial
+Lung/azygos lobe
+Markings/bronchovascular/severe
+Infiltrate/lung/lingula/round
+Airspace Disease/lung/middle lobe/right
+Mediastinum/lymph nodes/enlarged
+Scoliosis/thoracic vertebrae/right/mild
+Calcinosis/lung/hilum/lymph nodes
+Cicatrix/costophrenic angle
+Lung, Hyperlucent/base/right
+Calcified Granuloma/lung/hilum/multiple
+Deformity/thoracic vertebrae/scattered/multiple
+Funnel Chest/mild
+Pulmonary Edema/bilateral/interstitial/mild
+Pleural Effusion/lower lobe/left
+Markings/lung/bilateral/prominent
+Calcinosis/lung/apex/right
+Markings/lung/mild
+Cicatrix/lung/apex/mild
+Foreign Bodies/right
+Epicardial Fat/prominent
+Nodule/lung/upper lobe/bilateral
+Lung/blood vessels/blunted
+Scoliosis/lumbar vertebrae/moderate
+Cicatrix/lung/apex/right/mild
+Opacity/lung/lingula/patchy/mild
+Spondylosis/thoracic vertebrae/multiple
+Opacity/lung/interstitial/reticular/mild
+Pulmonary Artery/bilateral/prominent
+Airspace Disease/lung/base/left/patchy
+Calcinosis/trachea, carina/lymph nodes
+Cicatrix/lung/lower lobe/left/mild
+Colonic Interposition/mediastinum
+Pleural Effusion/costophrenic angle/left
+Pulmonary Atelectasis/upper lobe/left/mild
+Airspace Disease/lung/bilateral/scattered/patchy/multiple/mild
+Lung/blood vessels/enlarged
+Airspace Disease/lung/lingula/patchy/mild
+Foreign Bodies/posterior
+Pulmonary Edema/middle lobe/bilateral
+Hernia, Hiatal/large
+Volume Loss/lung/upper lobe/right
+Hernia, Hiatal/moderate
+Costophrenic Angle/blunted/chronic
+Lucency/lung/upper lobe/right/round/large
+Calcinosis/pleura/base/right
+Shift/trachea/right/mild
+Pulmonary Atelectasis/lingula/small
+Calcinosis/lung/lower lobe/left
+Mass/right/paratracheal
+Opacity/lung/middle lobe/bilateral/streaky/mild
+Sutures/lung/upper lobe/left
+Dislocations/thoracic vertebrae
+Cicatrix/lung
+Infiltrate/lung/base/bilateral/interstitial
+Lumbar Vertebrae/degenerative/multiple/mild
+Lumbar Vertebrae/degenerative/mild
+Nodule/lung/lower lobe/left
+Airspace Disease/lung/base/bilateral/mild
+Pulmonary Atelectasis/base
+Bronchiectasis/bilateral/severe
+Pulmonary Fibrosis/base/bilateral
+Pleural Effusion/borderline
+Pulmonary Atelectasis/upper lobe/left
+Osteophyte/thoracic vertebrae/right/prominent/multiple
+Fractures, Bone/thoracic vertebrae
+Cicatrix/right/chronic
+Cicatrix/costophrenic angle/sulcus/bilateral/chronic
+Lucency/clavicle/right
+Foreign Bodies/shoulder/right
+Opacity/lung/base/bilateral/prominent
+Kyphosis/thoracic vertebrae
+Thickening/pleura/apex/right
+Density/lung/lower lobe/right
+Cardiac Shadow/enlarged/mild
+Opacity/lung/lower lobe/left/streaky
+Calcified Granuloma/lung/base/bilateral
+Heart Ventricles/left/prominent
+Opacity/retrocardiac
+Pulmonary Atelectasis/middle lobe/right
+Density/heart
+Scoliosis/lumbar vertebrae
+Granulomatous Disease/chronic
+Surgical Instruments/lung/hilum/right
+Opacity/retrocardiac/streaky
+Stents/coronary vessels/left
+Thickening/pleura/middle lobe/right/small
+Density/lung/right/round
+Heart/small
+Foreign Bodies/thorax/right
+Pulmonary Atelectasis/left/severe
+Surgical Instruments/shoulder/right
+Epicardial Fat/left/prominent
+Scoliosis/thoracic vertebrae/right
+Markings/lung/interstitial/chronic
+Fractures, Bone/ribs/left/posterior/healed
+Calcinosis/breast implants
+Abdomen/enlarged/mild
+Pleural Effusion/base/bilateral
+Calcinosis/abdomen/left/severe
+Nodule/lung/lower lobe/right/anterior
+Diaphragm/bilateral/posterior/flattened/mild
+Cicatrix/lung/base/left/small
+Aorta/enlarged/tortuous/mild
+Tube, Inserted/trachea, carina
+Deformity/lung/hilum/right
+Pulmonary Atelectasis/lower lobe/bilateral/focal/round
+Opacity/lung/base/bilateral/scattered/focal/patchy/multiple
+Hydropneumothorax/right
+Fractures, Bone/humerus
+Surgical Instruments/multiple
+Opacity/lung/base/bilateral/interstitial/multiple
+Density/sternum
+Opacity/lung/lower lobe/right/streaky
+Markings/lung/apex/bilateral
+Opacity/lung/base/right/patchy
+Foreign Bodies/thoracic vertebrae/round
+Deformity/lung/base/left
+Opacity/lung/base/right/small
+Pectus Carinatum
+Markings/lung/bilateral/interstitial/diffuse/prominent
+Thickening/lung/upper lobe/bronchi/left/scattered
+Pulmonary Atelectasis/base/bilateral/mild
+Pleural Effusion/base/left/small
+Calcinosis/lung/lower lobe/left/large
+Lung/bilateral/hypoinflation
+Airspace Disease/lung/base/right/streaky/mild
+Calcified Granuloma/lung/upper lobe/right/multiple
+Pulmonary Fibrosis/interstitial
+Scoliosis/thoracic vertebrae/left/mild
+Spine/degenerative/mild
+Fractures, Bone/ribs/left
+Granuloma/lung/base/right
+Nodule/scattered/multiple/small
+Nodule/lung/bilateral/scattered
+Opacity/retrocardiac/round
+Costophrenic Angle/sulcus/bilateral/posterior/obscured
+Fractures, Bone/ribs/left/healed
+Shift/mediastinum/right
+Implanted Medical Device/shoulder/right
+Subcutaneous Emphysema/thorax/right/severe
+Tuberculosis
+Scoliosis/severe
+Mediastinum/right/paratracheal/prominent/mild
+Humerus/degenerative/severe
+Nodule/lung/lower lobe/right
+Opacity/lung/base/mild
+Catheters, Indwelling/left
+Calcified Granuloma/lung/scattered/multiple
+Mass/lung/upper lobe/right/anterior
+Markings/lung/lower lobe/left/interstitial
+Calcinosis/lung/base/right/small
+No Indexing
+Kyphosis/lumbar vertebrae
+Airspace Disease/lung/lingula/patchy
+Cicatrix/lung/left
+Foreign Bodies/lung/upper lobe/left
+Opacity/lung/bilateral/interstitial/diffuse
+Pneumothorax/apex/right/moderate
+Pulmonary Edema/base/interstitial
+Catheters, Indwelling/thorax
+Fractures, Bone/ribs/healed
+Calcified Granuloma/lung/base/left
+Cicatrix/lung/apex/bilateral/mild
+Cicatrix/lung/lower lobe/left
+Calcinosis/mitral valve
+Calcinosis/lymph nodes/bilateral
+Diaphragm/bilateral/flattened/mild
+Mass/lung/base/right/large
+Thoracic Vertebrae/degenerative/severe
+Medical Device/breast/bilateral
+Lung Diseases, Interstitial
+Granuloma/lung/upper lobe/right
+Opacity/thorax/posterior
+Infiltrate/lung/lower lobe/right/streaky
+Lung/interstitial/diffuse/prominent/mild
+Markings/lung/interstitial/prominent/mild
+Opacity/lung/upper lobe/right/focal
+Nodule/lung/hilum/right
+Thickening/pleura/right/focal
+Opacity/lung/base/bilateral/patchy/streaky
+Pleura/right/blunted
+Markings/lung/hilum/bilateral/prominent/mild
+Costophrenic Angle/right/blunted/mild
+Sclerosis/humerus/bilateral
+Diaphragm/left/flattened
+Opacity/lung
+Diaphragm/bilateral/flattened
+Costophrenic Angle/bilateral/blunted/mild
+Thickening/pleura/apex/left
+Opacity/pleural sinus/bilateral
+Calcinosis/bilateral/scattered
+Bullous Emphysema/lung/apex/bilateral
+Diaphragm/left/elevated/mild
+Deformity/ribs/right/posterior/multiple
+Markings/lung/base/right/bronchovascular
+Cicatrix
+Calcinosis
+Airspace Disease/lung/left/patchy
+Pneumoperitoneum/small
+Calcified Granuloma/lung/hilum/left
+Cicatrix/lung/lingula/small
+Stents/abdomen
+Airspace Disease/lung/lower lobe/left
+Lucency/heart ventricles/left
+Calcified Granuloma/lung/hilum/bilateral/multiple/large
+Opacity/lung/lower lobe/interstitial/diffuse/prominent
+Opacity/posterior
+Pleural Effusion/left/large
+Surgical Instruments/neck
+Calcified Granuloma/lung/middle lobe/right/small
+Lung/base/bilateral/obscured
+Pulmonary Congestion/right
+Cicatrix/breast/right
+Pulmonary Artery/hilum/prominent
+Opacity/lung/upper lobe/right/round/multiple/small
+Volume Loss/thorax/left/mild
+Nodule/lung/upper lobe/left/multiple/small
+Pulmonary Edema/base/bilateral
+Density/lung/hilum/left/multiple
+Markings/lung/base/right
+Calcinosis/ribs
+Opacity/lung/bilateral/interstitial/prominent/mild
+Pneumonia/lower lobe/right
+Density/thorax/multiple
+Opacity/mediastinum/base
+Nodule/lung/upper lobe/left/small
+Infiltrate/lung/base/left/interstitial
+Deformity/ribs/bilateral/multiple
+Density/costophrenic angle/left/round/small
+Foreign Bodies/costophrenic angle/left
+Markings/lung/upper lobe/right
+Costophrenic Angle/left/blunted/chronic
+Opacity/lung/base/bilateral/streaky
+Opacity/lung/hilum/prominent
+Infiltrate/lung/lower lobe/bilateral/interstitial/patchy
+Fractures, Bone/ribs/left/posterior/multiple/healed
+Emphysema/chronic
+Implanted Medical Device/abdomen/right
+Pleural Effusion/upper lobe/right
+Implanted Medical Device/right
+Nodule/lung/upper lobe/hilum/right
+Calcinosis/lung/middle lobe/right/round
+Opacity/lung/upper lobe/patchy
+Subcutaneous Emphysema/neck/bilateral
+Density/round
+Spinal Fusion/cervical vertebrae/posterior/severe
+Thickening/pleura/mild
+Calcinosis/pulmonary artery/lymph nodes
+Opacity
+Deformity/clavicle/left/chronic
+Nodule/lung/middle lobe/right/multiple/small
+Infiltrate/lung/lower lobe/left/patchy
+Cardiac Shadow/irregular
+Pulmonary Atelectasis/base/bilateral/patchy
+Surgical Instruments/left
+Pleural Effusion/middle lobe/right/small
+Density/lung/base/left/retrocardiac
+Ribs/right/anterior/prominent
+Nodule
+Diaphragmatic Eventration/left/posterior/focal
+Pulmonary Atelectasis/base/left/patchy
+Trachea, Carina/lymph nodes/enlarged
+Scoliosis/lumbar vertebrae/left/mild
+Granuloma/lung/lower lobe/left
+Breast Implants/bilateral
+Opacity/lung/base/left/patchy/mild
+Markings/lung/middle lobe/bilateral/interstitial
+Pulmonary Emphysema/bilateral/chronic
+Mass/lung/lower lobe/left/round
+Sulcus/posterior/blunted/mild
+Opacity/lung/hilum/left
+Cavitation/lung/upper lobe/left
+Nodule/lung/apex/right/round
+Opacity/lung/hilum/streaky
+Density/lung/lower lobe/left/round
+Pleural Effusion/bilateral/posterior/mild
+Lung/hilum/bilateral/prominent
+Pneumonia/base/left
+Tube, Inserted
+Lucency/clavicle/left
+Calcinosis/lung/base/right
+Opacity/lung/base/bilateral/patchy
+Calcified Granuloma/lung/bilateral/multiple
+Cardiomegaly/moderate
+Airspace Disease/lung/left/retrocardiac
+Opacity/lung/lower lobe/right/diffuse
+Opacity/sulcus/posterior/mild
+Opacity/lung/hilum/bilateral/interstitial
+Cicatrix/lung/lower lobe/left/streaky
+Calcinosis/mild
+Pneumothorax/left/moderate
+Density/lung/hilum/left
+Cicatrix/lung/upper lobe/hilum/left
+Pulmonary Atelectasis/middle lobe/right/chronic
+Implanted Medical Device/aortic valve
+Costophrenic Angle/right/blunted/chronic
+Lung Diseases, Interstitial/bilateral/mild
+Cicatrix/lung/lower lobe/bilateral
+Opacity/lung/interstitial/prominent/mild
+Deformity/ribs/posterior
+Opacity/lung/apex/bilateral/patchy/mild
+Pulmonary Atelectasis/base/posterior
+Pulmonary Edema/interstitial/mild
+Granuloma/lung/lingula
+Opacity/lung/lower lobe/right/severe
+Mass/lung/apex/right
+Opacity/lung/hilum/pulmonary alveoli/left
+Deformity/ribs/left/chronic
+Calcinosis/lung/right
+Calcified Granuloma/lung/lower lobe/left/multiple
+Thickening/pleura/bilateral
+Opacity/lung/lower lobe/bilateral
+Deformity/thoracic vertebrae/multiple/mild
+Nipple Shadow/bilateral
+Foreign Bodies/neck/right
+Markings/lung/base/interstitial/prominent/mild
+Thickening/lung/interstitial
+Costophrenic Angle/obscured
+Diaphragmatic Eventration/right
+Diaphragm/left/elevated/chronic
+Infiltrate/lung/upper lobe/left
+Osteophyte/thoracic vertebrae/degenerative/multiple/mild
+Scoliosis/right/mild
+Surgical Instruments/lung/hilum/left
+Kyphosis
+Pulmonary Emphysema
+Pulmonary Emphysema/mild
+Lung, Hyperlucent/left
+Consolidation/lung/base/right
+Deformity/abdomen
+Calcinosis/lymph nodes/bilateral/multiple
+Osteophyte/thoracic vertebrae/anterior/multiple/large
+Hemothorax/left/small
+Epicardial Fat
+Opacity/lung/base/right
+Opacity/costophrenic angle/right/multiple
+Density/lung/upper lobe/left/irregular
+Mass/lung/upper lobe/right/large
+Atherosclerosis/aorta
+Density/lung/lower lobe/left/retrocardiac
+Scoliosis/right
+Opacity/mediastinum/posterior/round
+Lucency/lung
+Pulmonary Atelectasis
+Arthritis/spine
+Deformity/breast
+Pneumonectomy/lung/upper lobe/right
+Calcinosis/lung/lower lobe/right
+Lung, Hyperlucent/upper lobe/right
+Pleural Effusion/bilateral/posterior
+Bronchiolitis
+Costophrenic Angle/right/blunted
+Calcified Granuloma/bilateral/multiple
+Arthritis/spine/mild
+Consolidation/lung/lower lobe/right
+Lucency/lung/upper lobe/right/round/multiple/small
+Pulmonary Fibrosis/base
+Fractures, Bone/humerus/right
+Calcified Granuloma/lung/upper lobe/right/small
+Aorta/enlarged/tortuous
+Opacity/lung/upper lobe/left/irregular
+Medical Device/thorax/left
+Calcinosis/lung/hilum/left/multiple
+Scoliosis/thoracic vertebrae/moderate
+Scoliosis/lumbar vertebrae/right/mild
+Lung/lingula/obscured
+Foreign Bodies/thorax/left/small
+Deformity/ribs/left
+Pleural Effusion/right/large
+Tube, Inserted/abdomen
+Diaphragm/right/elevated/chronic
+Sulcus/posterior/obscured
+Foreign Bodies/breast/right
+Thickening/pleura
+Catheters, Indwelling/bilateral
+Pericardial Effusion
+Calcinosis/aorta/severe
+Pneumonia/multilobar
+Pneumonia/base/bilateral/patchy
+Expansile Bone Lesions/ribs/right
+Fractures, Bone/ribs/left/chronic
+Aorta, Thoracic/tortuous/severe
+Density/retrocardiac
+Calcinosis/lung/scattered/multiple
+Kyphosis/lumbar vertebrae/mild
+Cicatrix/lung/upper lobe/left
+Calcinosis/abdomen
+Opacity/lung/base/right/streaky
+Airspace Disease/lung/lower lobe/left/patchy
+Granulomatous Disease
+Lung/hypoinflation/severe
+Opacity/lung/upper lobe/left/streaky/mild
+Bronchiectasis/middle lobe/right
+Pulmonary Atelectasis/base/right/scattered
+Opacity/lung/base/right/scattered/multiple
+Cardiac Shadow/obscured/severe
+Mastectomy/right
+Lucency/clavicle/left/round/small
+Pneumonia/middle lobe/right
+Calcified Granuloma/scattered
+Airspace Disease/lung/costophrenic angle/left/mild
+Adipose Tissue/right
+Markings/lung/interstitial/diffuse
+Fractures, Bone/clavicle/left
+Thickening/bronchovascular
+Nodule/lung/bilateral/interstitial
+Pulmonary Atelectasis/base/left/mild
+Opacity/lung/interstitial/diffuse
+Scoliosis/thoracic vertebrae/left/moderate
+Arthritis/severe
+Calcinosis/ribs/multiple
+Airspace Disease/lung/lower lobe/right/mild
+Granuloma/lung/lower lobe/right
+Granuloma/scattered
+Funnel Chest
+Nodule/lung/apex/bilateral/round
+Bullous Emphysema
+Calcinosis/lymph nodes/right/paratracheal
+Lucency/humerus/right
+Cholelithiasis
+Pulmonary Atelectasis/base/left/scattered
+Pulmonary Edema/lower lobe/bilateral/interstitial
+Density/ribs/right/anterior/round/multiple
+Scoliosis/thoracic vertebrae
+Infiltrate/lung/lower lobe/left/interstitial
+Deformity/clavicle/right/chronic
+Density/lung/base/right/round
+Spinal Fusion/cervical vertebrae
+Volume Loss/lung/upper lobe/left
+Opacity/lung/bilateral/round/multiple
+Pneumothorax/left
+Pulmonary Fibrosis/lower lobe/left/interstitial
+Costophrenic Angle/sulcus/bilateral/blunted
+Lucency/ribs/left/posterior
+Calcified Granuloma/lung/bilateral/scattered
+Pulmonary Fibrosis/right/severe
+Arthritis/shoulder/bilateral/mild
+Infiltrate/lung/lingula/focal/round/small
+Surgical Instruments/lung/apex/left
+Atherosclerosis
+Cicatrix/lung/base/bilateral/chronic
+Density/lung/middle lobe/right/patchy
+Osteophyte/thoracic vertebrae
+Airspace Disease/lung/base/right/focal
+Opacity/lung/base/left/retrocardiac
+Pulmonary Atelectasis/base/patchy
+Pneumonia/base/bilateral
+Costophrenic Angle/left/obscured
+Pulmonary Atelectasis/base/bilateral/streaky/mild
+Opacity/lung/lingula/focal
+Consolidation/lung/upper lobe/right/focal
+Cicatrix/lung/apex/left
+Nodule/lung/base/left/reticular
+Calcinosis/lung/right/round
+Adipose Tissue/pleura/left
+Nodule/lung/hilum/right/prominent
+Foreign Bodies/thorax/left/posterior
+Sutures/sternum
+Lung/hilum/left/prominent/mild
+Lung/hilum/lymph nodes/left/enlarged
+Granuloma/thoracic vertebrae
+Calcified Granuloma/lung/base/right
+Foreign Bodies/lung/lower lobe/right
+Opacity/lung/middle lobe/right
+Cicatrix/lung/middle lobe/right
+Cicatrix/mild
+Bronchiectasis
+Calcinosis/lung/upper lobe/right
+Pneumonia/right/focal/multiple
+Pulmonary Fibrosis/upper lobe/right
+Pulmonary Atelectasis/streaky
+Deformity/heart/right
+Cardiomegaly/borderline
+Opacity/lung/base/left/patchy
+Pulmonary Atelectasis/base/left/chronic
+Infiltrate/lung/hilum/right
+Markings/bronchovascular/left
+Opacity/lung/interstitial/mild
+Thickening/lung/base/bilateral/interstitial
+Calcified Granuloma/lung/lingula/posterior
+Thoracic Vertebrae/degenerative/diffuse
+Emphysema/mild
+Pulmonary Fibrosis/apex/bilateral
+Density/lung/lower lobe/left/patchy/small
+Fractures, Bone/lumbar vertebrae
+Opacity/lung/middle lobe/right/mild
+Opacity/multiple/chronic
+Calcinosis/lung/hilum/left
+Sutures/lung/apex/right
+Opacity/lung/middle lobe/right/reticular
+Opacity/pulmonary alveoli
+Epicardial Fat/right/prominent
+Infiltrate/lung/middle lobe
+Ribs/prominent
+Cicatrix/lung/base/left/chronic/mild
+Thickening/bronchi
+Opacity/lung/base/posterior
+Opacity/lung/upper lobe/right
+Granuloma/lung/bilateral/scattered
+Pleural Effusion/bilateral
+Hydropneumothorax/left/large
+Opacity/lung/base/left/mild
+Pleural Effusion/base/left
+Lucency/lung/base/right/irregular
+Airspace Disease/lung/base/right
+Density/thorax/round
+Nodule/lung/lower lobe/right/multiple/small
+Markings/right/paratracheal/prominent
+Surgical Instruments/bilateral
+Calcinosis/lung/hilum/lymph nodes/right
+Lucency/mediastinum/mild
+Thickening/pleura/right
+Lucency/diaphragm/left
+Density/lung/base/right/streaky/mild
+Pericardial Effusion/severe
+Nodule/lung/lower lobe/left/multiple
+Thickening/pleura/apex/left/focal
+Pneumonia/lower lobe/right/anterior
+Costophrenic Angle/lower lobe/bilateral/blunted
+Opacity/lung/base/left/scattered
+Opacity/lung/base/right/interstitial
+Calcified Granuloma/bilateral/scattered/multiple
+Implanted Medical Device/thorax/left
+Density/lung/base/left
+Density/mediastinum
+Granuloma/lung/hilum/left
+Density/ribs/right/round/multiple
+Opacity/lung/upper lobe/left/prominent
+Cicatrix/pleura/apex/left
+Pulmonary Atelectasis/posterior/mild
+Cardiomegaly/severe
+Airspace Disease/lung
+Pulmonary Atelectasis/base/bilateral/focal
+Pneumonia
+Granuloma/thorax/left
+Scoliosis/thoracic vertebrae/right/moderate
+Calcinosis/abdomen/left
+Costophrenic Angle/blunted
+Calcinosis/aorta
+Calcinosis/bronchi/diffuse
+Lucency/thorax/left
+Pulmonary Atelectasis/lingula
+Opacity/lung/hilum/left/streaky
+Pulmonary Atelectasis/base/right/scattered/mild
+Opacity/lung/hilum/interstitial
+Deformity/ribs/right/posterior
+Lung/interstitial/prominent/mild
+Airspace Disease/lung/upper lobe/left
+Fractures, Bone/clavicle/right/mild
+Lung, Hyperlucent/apex/bilateral
+Airspace Disease/lung/lower lobe/bilateral
+Opacity/lung/base/bilateral/streaky/mild
+Calcified Granuloma/lung/lower lobe/right
+Pulmonary Emphysema/base/bilateral
+Granuloma/lung
+Pulmonary Atelectasis/bilateral
+Markings/lung/lower lobe/right
+Foreign Bodies/spine
+Consolidation/pulmonary alveoli
+Heart/left/obscured
+Calcinosis/multiple
+Bone and Bones/degenerative
+Markings/lung/lower lobe/hilum/right/bronchovascular
+Opacity/costophrenic angle/left
+Opacity/lung/retrocardiac/scattered/multiple
+Deformity/lumbar vertebrae
+Pulmonary Artery/left/enlarged
+Calcinosis/lung/hilum/right
+Shoulder/bilateral/degenerative/severe
+Opacity/scattered/round/multiple
+Lucency/lung/upper lobe/bilateral
+Markings/lung/base/bilateral
+Opacity/lung/diffuse/patchy
+Pulmonary Atelectasis/upper lobe/right/mild
+Opacity/lung/bilateral/interstitial
+Cysts/humerus/right/large
+Opacity/scattered/multiple
+Cystic Fibrosis
+Markings/bronchovascular/mild
+Tube, Inserted/thorax/left
+Pulmonary Atelectasis/hilum/right
+Granuloma/lung/upper lobe/right/multiple
+Pulmonary Artery/enlarged
+Nodule/lung/base/left
+Markings/lung/base/bronchovascular/mild
+Opacity/lung/base/left/chronic/mild
+Cicatrix/lung/upper lobe/left/chronic
+Density/costophrenic angle/left
+Mass/lung/bilateral/multiple
+Airspace Disease/lung/base/patchy
+Calcinosis/aorta/mild
+Aorta, Thoracic/prominent
+Pulmonary Atelectasis/base/right/mild
+Opacity/lung/bilateral/mild
+Blister/lung/apex/bilateral
+Nodule/lung/hilum
+Lung/hypoinflation/mild
+Opacity/lung/lower lobe/bilateral/patchy
+Surgical Instruments
+Spinal Fusion/cervical vertebrae/anterior
+Opacity/lung/interstitial/diffuse/patchy/mild
+Calcinosis/mediastinum/lymph nodes
+Infiltrate/lung/upper lobe/right
+Markings/bronchovascular
+Nodule/lung/lower lobe/left/posterior
+Scoliosis/thoracic vertebrae/right/severe
+Opacity/lung/middle lobe/pulmonary alveoli/bilateral
+Opacity/lung/base/left/multiple
+Bone Diseases, Metabolic
+Cicatrix/pleura/apex/bilateral/mild
+Pneumoperitoneum
+Density/lung/hilum/right
+Thickening/pleura/apex/bilateral/mild
+Surgical Instruments/thorax/bilateral
+Cicatrix/lung/apex/right/round
+Shift/heart/left
+Airspace Disease/lung/streaky
+Opacity/lung/base/right/round/multiple/small
+Sutures/lung/hilum/right
+Lung/hilum/lymph nodes/right/enlarged
+Opacity/lung/middle lobe/right/severe
+Density/thorax/left
+Deformity/thorax/left
+Pleural Effusion/right/moderate
+Medical Device/spine
+Blister/lung/upper lobe/right
+Pulmonary Atelectasis/bilateral/scattered
+Calcinosis/scattered/multiple/small
+Density/lung/middle lobe/right
+Cicatrix/ribs/left
+Costophrenic Angle/sulcus/left/posterior/blunted
+Opacity/lung/middle lobe/right/focal
+Pulmonary Artery/enlarged/severe
+Calcinosis/abdomen/right/round
+Hernia, Hiatal/small
+Opacity/lung/lower lobe/left/large
+Emphysema/severe
+Opacity/lung/hilum/right/round
+Infiltrate/lung/upper lobe/right/mild
+Pulmonary Atelectasis/base/left/focal
+Opacity/lung/apex/left
+Calcified Granuloma/lung/upper lobe/right
+Pulmonary Emphysema/chronic
+Fractures, Bone/clavicle/right
+Nodule/lung/lingula
+Costophrenic Angle/posterior/blunted
+Cicatrix/pleura/apex/bilateral
+Costophrenic Angle/left/blunted/mild
+Pulmonary Edema/mild
+Lucency/lung/apex/right/focal/round
+Density/ribs/left/posterior/irregular
+Lung Diseases, Interstitial/base/bilateral/patchy
+Calcinosis/lung/bilateral
+Costophrenic Angle/bilateral/blunted/chronic
+Airspace Disease/lung/bilateral
+Lucency/retrocardiac
+Diaphragm/right/elevated
+Opacity/lung/lower lobe/bilateral/prominent
+Surgical Instruments/cervical vertebrae
+Osteophyte/thoracic vertebrae/anterior/multiple
+Trachea/right/tortuous/mild
+Foreign Bodies/lumbar vertebrae
+Airspace Disease/lung/base/right/acute
+Opacity/costophrenic angle/sulcus/bilateral/streaky
+Spine/degenerative/diffuse
+Calcinosis/lung/base/left
+Cicatrix/lung/lower lobe/bilateral/mild
+Hernia, Hiatal/prominent
+Nodule/lung/hilum/left
+Nodule/lung/upper lobe/bilateral/multiple
+Nodule/lung/lower lobe/bilateral/multiple
+Pneumonectomy/lung/upper lobe/left
+Nodule/pleura/apex/bilateral/round
+Pleural Effusion
+Fractures, Bone/ribs/right/multiple/healed
+Fractures, Bone/Thoracic Vertebrae
+Lung, Hyperlucent/bilateral
+Diaphragmatic Eventration/left/mild
+Costophrenic Angle/bilateral/blunted
+Opacity/round/multiple
+Medical Device/thorax
+Airspace Disease/lung/base/left/severe
+Deformity/thorax
+Cicatrix/lung/upper lobe/right/scattered
+Infiltrate/lung/base/right/patchy/mild
+Osteophyte/shoulder/bilateral/multiple
+Calcified Granuloma/lung/middle lobe/left
+Cicatrix/cardiophrenic angle/left/small
+Fractures, Bone/ribs/left/multiple
+Cardiac Shadow/enlarged/severe
+Infiltrate/lung/bilateral
+Pulmonary Fibrosis/upper lobe/left
+Cicatrix/pleura/apex/bilateral/round
+Lucency/lung/apex/bilateral
+Density/lung/lingula
+Pleural Effusion/bilateral/moderate
+Osteophyte/spine
+Nodule/heart/left/small
+Opacity/lung/lingula/round
+Calcified Granuloma/lung/base/right/large
+Opacity/lung/multiple/abnormal
+Implanted Medical Device/humerus/right
+Subcutaneous  Emphysema/right
+Opacity/lung/upper lobe/left/focal
+Calcified Granuloma/lung/lower lobe/right/large
+Nodule/lung/scattered/multiple/small
+Markings/lung/interstitial/prominent
+Calcinosis/right/paratracheal
+Pulmonary Atelectasis/middle lobe/right/mild
+Airspace Disease/lung/base/left/mild
+Kyphosis/thoracic vertebrae/severe
+Opacity/lung/base/left/streaky
+Opacity/lung/lower lobe/right/patchy
+Density/mediastinum/prominent
+Consolidation/lung
+Pulmonary Atelectasis/costophrenic angle/right/focal
+Opacity/lung/hilum/streaky/mild
+Calcinosis/mediastinum
+Sclerosis/thoracic vertebrae/posterior/mild
+Cicatrix/lung/upper lobe/right
+Shift/mediastinum/mild
+Markings/sulcus/left
+Blister/lung/upper lobe/bilateral
+Opacity/costophrenic angle/right/round
+Calcinosis/lung/hilum/lymph nodes/small
+Pericardial Effusion/large
+Deformity/shoulder/left
+Heart Ventricles/left/enlarged
+Implanted Medical Device/shoulder/left
+Deformity/lung/apex/hilum
+Deformity/ribs/left/anterior/multiple
+Density/lung/hilum/left/round
+Pulmonary Atelectasis/hilum/right/mild
+Calcified Granuloma/lung/hilum/right/multiple/large
+Infiltrate/lung/lower lobe/right/patchy
+Calcified Granuloma/lung/apex/right
+Airspace Disease/lung/middle lobe/right/focal
+Calcinosis/aorta, thoracic/severe
+Pulmonary Atelectasis/left/mild
+Cicatrix/lung/lingula/mild
+Lung/obscured
+Calcified Granuloma/lung/lingula
+Opacity/lung/base/interstitial/reticular
+Granuloma/lung/right
+Pulmonary Atelectasis/lower lobe/bilateral
+Density/clavicle/right/focal
+Calcinosis/blood vessels/severe
+Mass/lung/lingula
+Lung/hilum/left/prominent
+Opacity/pleura/upper lobe/left/irregular
+Airspace Disease/lung/base/bilateral/streaky/mild
+Opacity/lung/left
+Markings/prominent
+Medical Device/right
+Markings/lung/middle lobe/bilateral/interstitial/prominent
+Fibrosis/diffuse
+Calcified Granuloma/paratracheal
+Density/lung/base/left/mild
+Fractures, Bone/ribs/right
+Lung/blood vessels/left/prominent/mild
+Opacity/lung/base/bilateral
+Opacity/mediastinum
+Aorta, Thoracic/enlarged
+Pulmonary Atelectasis/left/patchy
+Lung/hilum/prominent
+Thoracic Vertebrae/degenerative/multiple/mild
+Calcified Granuloma/lung/multiple/small
+Pneumothorax/left/large
+Opacity/lung/interstitial
+Tube, Inserted/large
+Costophrenic Angle/sulcus/posterior/obscured
+Implanted Medical Device/mitral valve
+Thoracic Vertebrae/degenerative/chronic/mild
+Tube, Inserted/right
+Pleura/blunted/mild
+Granuloma/lung/base/left
+Airspace Disease/lung/lower lobe/right/patchy/mild
+Cicatrix/lung/base/left
+Thickening/pleura/right/mild
+Calcinosis/lung/upper lobe/left/large
+Opacity/lung/middle lobe/bilateral/interstitial/multiple
+Cicatrix/lung/apex/right
+Sulcus/right/posterior/blunted
+Cicatrix/lung/upper lobe/right/streaky/mild
+Opacity/lung/upper lobe/right/round/small
+Calcified Granuloma/lung/multiple
+Sclerosis/thoracic vertebrae
+Nodule/pleura/left
+Pneumonia/upper lobe/left
+Hypertension, Pulmonary
+Density/lung/lower lobe/left
+Lung/hyperdistention/moderate
+Opacity/lung/upper lobe/right/streaky
+Granulomatous Disease/thorax/right/healed
+Cavitation/lung/bilateral/multiple
+Pneumothorax/apex/right/small
+Foreign Bodies/breast/left
+Opacity/lung/upper lobe/right/anterior
+Costophrenic Angle/posterior/blunted/mild
+Pneumothorax/right/large
+Pulmonary Atelectasis/base/right
+Calcified Granuloma/lung/lower lobe/right/anterior
+Deformity/lumbar vertebrae/anterior/multiple/acute/mild
+Opacity/lung/hilum/multiple/prominent/mild
+Density/ribs/left/anterior
+Opacity/lung/upper lobe/bilateral/reticular/round/multiple/chronic
+Calcified Granuloma/lung/lower lobe/right/small
+Markings/lung/base/bilateral/bronchovascular
+Pericardial Effusion/mild
+Thoracic vertebrae/degenerative/mild
+Opacity/lung/base/pulmonary alveoli/bilateral
+Volume Loss/lung/left/mild
+Calcified Granuloma/lung/upper lobe/left
+Pulmonary Atelectasis/base/bilateral/focal/mild
+Nodule/lung/lower lobe/left/irregular
+Calcified Granuloma/scattered/round/multiple
+Tube, Inserted/left
+Pulmonary Fibrosis/bilateral/interstitial
+Dislocations/shoulder/right
+Lung Diseases, Interstitial/diffuse
+Heart Failure/moderate
+Pulmonary Edema/lower lobe/bilateral
+Deformity/thoracic vertebrae/anterior/multiple
+Lung, Hyperlucent
+Aorta/tortuous/mild
+Fractures, Bone/ribs/left/anterior/multiple
+Pulmonary Atelectasis/upper lobe/right
+Deformity/ribs/right
+Nodule/lung/left/multiple
+Cicatrix/lung/base/bilateral/patchy/streaky
+Cicatrix/lung/base/bilateral
+Lung, Hyperlucent/apex/right
+Foreign Bodies/breast/bilateral
+Deformity/thoracic vertebrae/multiple
+Airspace Disease/lung/base/left/streaky/mild
+Density/lung/upper lobe/right/anterior/round
+Opacity/lung/lingula
+Calcinosis/aorta, thoracic/mild
+Density/lung/hilum/right/prominent
+Density/paratracheal
+Deformity/humerus/right/chronic
+Lung Diseases, Interstitial/bilateral/diffuse
+Implanted Medical Device/thoracic vertebrae
+Cysts/lung/upper lobe/left
+Calcified Granuloma/lung/right/multiple
+Implanted Medical Device/heart/right
+Thickening/pleura/apex/bilateral/round
+Cardiac Shadow/enlarged/prominent
+Density/retrocardiac/small
+Mass/breast/large
+Mass/thorax/multiple
+Nipple Shadow/lung/base/bilateral
+Implanted Medical Device
+Foreign Bodies/adipose tissue/posterior/round/small
+Bronchitis/lower lobe/bilateral
+Cicatrix/pleura
+Density/lung/right/round/multiple
+Nodule/lung/bilateral/multiple
+Opacity/lung/hilum/interstitial/diffuse/prominent
+Opacity/lung/hilum/right/patchy
+Cicatrix/lung/right
+Opacity/lung/base/pulmonary alveoli/bilateral/patchy
+Calcinosis/lung/bilateral/round/small
+Opacity/right/paratracheal
+Opacity/lung/base/right/focal/abnormal
+Adipose Tissue/lung/base/right
+Heart Atria/left/enlarged
+Sarcoidosis
+Surgical Instruments/abdomen
+Spondylosis
+Lung/base/bilateral/prominent/mild
+Opacity/lung/base/interstitial/patchy
+Cardiac Shadow/enlarged/moderate
+Density/breast
+Density/lung/base/left/round
+Diaphragm/bilateral/elevated
+Implanted Medical Device/heart atria
+Heart/right/obscured/mild
+Thoracic Vertebrae/scattered/degenerative
+Arthritis/humerus/left
+Costophrenic Angle/bilateral/posterior/blunted
+Nodule/lung/base/right
+Lung/hypoinflation
+Pleura/base/bilateral/abnormal/chronic
+Pulmonary Atelectasis/lower lobe/left
+Pneumonia/focal/multiple
+Pleural Effusion/left/small
+Granuloma/left/small
+Opacity/anterior
+Atherosclerosis/aorta, thoracic
+Density/costophrenic angle/right
+Atherosclerosis/aorta/severe
+Opacity/lung/bilateral/interstitial/mild
+Opacity/lung/lower lobe/right/posterior/round
+Pulmonary Atelectasis/left/retrocardiac/focal
+Cicatrix/lung/middle lobe/right/mild
+Density/lung/bilateral/round/small
+Density/ribs/right/focal
+Pulmonary Atelectasis/lower lobe/right/severe
+Lung/base/right/interstitial/prominent
+normal
+Calcified Granuloma/lung/hilum/right
+Opacity/lung/lower lobe/left/patchy
+Stents/coronary vessels
+Tube, Inserted/thorax/right
+Pulmonary Edema/interstitial
+Calcified Granuloma/costophrenic angle/posterior
+Calcified Granuloma/small
+Lung/hilum/bilateral/prominent/mild
+Deformity/lung/apex/right/irregular
+Thickening/pleura/apex/bilateral
+Deformity/ribs/right/chronic
+Airspace Disease/lung/middle lobe/right/patchy
+Thickening/heart ventricles
+Infiltrate/lung/base/left/mild
+Calcified Granuloma/lung/lower lobe/left
+Cicatrix/lung/middle lobe/right/patchy
+Opacity/lung/bilateral/scattered
+Scoliosis/lumbar vertebrae/right/moderate
+Calcinosis/lung/bilateral/scattered
+Catheters, Indwelling/thorax/right/anterior
+Foreign Bodies/clavicle/left
+Consolidation/lung/lower lobe/bilateral
+Opacity/lung/hilum/left/interstitial
+Deformity/pleura/apex/right
+Opacity/ribs/left/round/multiple/small
+Aorta/prominent
+Diaphragm/bilateral/obscured
+Density/thorax/right
+Density/lung/lower lobe/left/irregular
+Thickening/right/paratracheal
+Granuloma/lung/upper lobe/left
+Costophrenic Angle/left/blunted
+Hydropneumothorax/apex/right
+Opacity/lung/upper lobe/bilateral/round
+Bronchiectasis/upper lobe/bilateral
+Markings/lung/bilateral/interstitial
+Fractures, Bone
+Mass/thorax/right
+Infiltrate/lung/lower lobe/right
+Stents
+Aorta, Thoracic/tortuous/moderate
+Infiltrate/lung/left/interstitial
+Costophrenic Angle/bilateral/obscured
+Pulmonary Atelectasis/middle lobe
+Density/lung/lingula/round
+Airspace Disease/lung/base/right/patchy
+Lung/base/right/hypoinflation/mild
+Spinal Fusion/thoracic vertebrae/anterior
+Calcinosis/lung/hilum/lymph nodes/bilateral
+Consolidation/lung/base/right/mild
+Consolidation/lung/upper lobe/right
+Calcified Granuloma/lung/middle lobe
+Pulmonary Fibrosis/base/left
+Calcinosis/ribs/right/anterior/prominent
+Opacity/lung/base/patchy
+Opacity/thorax/multiple/small
+Spondylosis/spine
+Lung/hyperdistention
+Scoliosis/lumbar vertebrae/right
+Opacity/lung/lower lobe/left/patchy/small
+Nodule/lung/upper lobe/left/focal
+Airspace Disease/lung/lingula
+Density/lung/upper lobe/right
+Ribs/bilateral/degenerative
+Calcified Granuloma/lung/hilum
+Fractures, Bone/ribs/left/multiple/healed
+Lung/base/right/obscured
+Density/left/retrocardiac/streaky
+Infiltrate/lung/base/left
+Pulmonary Fibrosis/lower lobe/bilateral
+Density/thorax/scattered/round/multiple
+Blister/lung/upper lobe/bilateral/multiple
+Diaphragm/right/elevated/mild
+Ribs/right/posterior/enlarged/mild
+Density/lung/base/right/mild
+Deformity/clavicle/left
+Calcified Granuloma/lung/bilateral/scattered/multiple
+Osteoporosis
+Pneumonia/lower lobe/right/mild
+Cicatrix/lung/lower lobe/right
+Thickening/pleura/apex/bilateral/chronic
+Cicatrix/lung/lingula/focal
+Opacity/lung/bilateral/interstitial/diffuse/reticular/round/severe
+Pulmonary Atelectasis/chronic
+Opacity/lung/lower lobe/left/scattered/multiple
+Pulmonary Atelectasis/lower lobe/right
+Aorta, Thoracic/prominent/mild
+Pulmonary Artery/bilateral/enlarged
+Mediastinum/prominent
+Infiltrate/lung/middle lobe/right
+Shoulder/left/degenerative
+Sulcus/bilateral/posterior/blunted/mild
+Markings/lung/lower lobe/interstitial/prominent
+Medical Device
+Density/lung/apex/right
+Density/lung/base/left/multiple/mild
+Lung/hyperdistention/mild
+Airspace Disease/lung/middle lobe/right/mild
+Calcified Granuloma/lung/lower lobe/right/multiple
+Lung/hilum/lymph nodes/right/prominent
+Lung, Hyperlucent/upper lobe/bilateral
+Scoliosis/thoracic vertebrae/mild
+Calcinosis/right/paratracheal/multiple
+Granuloma/lung/bilateral/scattered/multiple
+Opacity/lung/bilateral/scattered/round/multiple
+Opacity/lung/apex/right
+Markings/lung/base/interstitial
+Lung, Hyperlucent/bilateral/mild
+Density/bilateral/round/small
+Atherosclerosis/aorta/mild
+Subcutaneous Emphysema/abdomen/right
+Infiltrate/lung/base/bilateral
+Shoulder/bilateral/degenerative/mild
+Opacity/thorax
+Fractures, Bone/ribs/right/posterior/healed
+Pulmonary Edema/bilateral/interstitial/moderate
+Cicatrix/lung/base/left/chronic
+Nipple Shadow/lung/left
+Opacity/lung/bilateral
+Infiltrate/lung/upper lobe/pulmonary alveoli/right/patchy
+Consolidation/lung/base/left
+Catheters, Indwelling/thoracic vertebrae
+Calcified Granuloma/lung/apex/right/large
+Calcinosis/lymph nodes
+Opacity/lung/apex/right/focal
+Deformity/thoracic vertebrae/right/mild
+Thoracic Vertebrae/degenerative/multiple
+Shoulder/degenerative
+Pneumonectomy/lung/left
+Lung/hilum/lymph nodes/bilateral/enlarged
+Calcified Granuloma/lung/hilum/bilateral/multiple
+Heart Atria/right/enlarged
+Bullous Emphysema/lung/upper lobe/bilateral/severe
+Opacity/lung/hilum/left/round
+Airspace Disease/lung/base/right/mild
+Scoliosis/lumbar vertebrae/mild
+Cicatrix/pleura/bilateral
+Pulmonary Congestion/hilum/bilateral
+Consolidation/lung/lower lobe/left/focal
+Cicatrix/lung/upper lobe/left/mild
+Foreign Bodies/lung/lower lobe/left
+Opacity/lung/upper lobe/right/interstitial
+Mediastinum/right/paratracheal/enlarged
+Lymph nodes/left/enlarged
+Lucency/diaphragm/right
+Dislocations/lumbar vertebrae
+Calcified Granuloma/lung/base/left/round
+Diaphragm/left/obscured
+Heart/right/obscured
+Heart Failure
+Calcified Granuloma/lung/lower lobe/left/small
+Opacity/lung/upper lobe/right/posterior/patchy/mild
+Calcified Granuloma/thorax/scattered/multiple/small
+Osteophyte/thoracic vertebrae/prominent/multiple
+Cicatrix/thorax/left
+Nodule/lung/scattered/multiple
+Lung, Hyperlucent/apex
+Opacity/left
+Deformity/humerus/left
+Implanted Medical Device/cervical vertebrae
+Diaphragm/right/posterior/elevated
+Implanted Medical Device/pulmonary artery
+Markings/lung/base/right/interstitial/chronic
+Opacity/lung/hilum/right/small
+Deformity/lung/hilum
+Scoliosis/lumbar vertebrae/left
+Granuloma/lung/lower lobe/left/round
+Calcinosis/lung/hilum/lymph nodes/left
+Calcinosis/lung/hilum/lymph nodes/bilateral/multiple/large
+Nodule/lung/left
+Airspace Disease/lung/lower lobe/right
+Calcified Granuloma/lung/right/small
+Fractures, Bone/humerus/left
+Markings/lung/interstitial/irregular
+Nodule/lung/upper lobe/right/small
+Infiltrate/lung/lower lobe/right/interstitial/patchy
+Granuloma/lung/hilum/left/multiple
+Hyperostosis, Diffuse Idiopathic Skeletal
+Density/thorax
+Markings/lung/base/bilateral/interstitial/prominent
+Nodule/multiple
+Surgical Instruments/lung/right
+Opacity/ribs/right/posterior/round
+Opacity/lung/lingula/streaky
+Calcified Granuloma
+Pneumothorax/right
+Bone Diseases, Metabolic/degenerative/mild
+Deformity/thoracic vertebrae/anterior
+Pulmonary Congestion/bilateral
+Lung/interstitial/prominent
+Surgical Instruments/mediastinum
+Pneumonia/upper lobe/left/round
+Calcinosis/lung/hilum
+Volume Loss/thorax/right
+Pulmonary Atelectasis/middle lobe/right/focal
+Lung Diseases, Interstitial/chronic
+Cicatrix/lung/lingula
+Calcified Granuloma/lung/upper lobe/left/small
+Opacity/lung/base/right/mild
+Hernia, Hiatal/retrocardiac/large
+Cysts/humerus/left
+Subcutaneous Emphysema/thorax/left
+Airspace Disease/lung/base/bilateral/patchy
+Implanted Medical Device/humerus/left
+Lumbar Vertebrae/degenerative/severe
+Arthritis/cervical vertebrae/multiple
+Pneumothorax/right/moderate
+Lung/apex/bilateral/obscured
+Pulmonary Atelectasis/base/mild
+Calcified Granuloma/lung/lingula/small
+Opacity/lung/interstitial/round/prominent
+Calcinosis/lung/lower lobe/left/irregular
+Airspace Disease/lung/base/bilateral
+Opacity/adipose tissue/posterior/round/small
+Opacity/lung/right/streaky/mild
+Opacity/pulmonary alveoli/bilateral/diffuse
+Calcified Granuloma/lung/base/multiple
+Opacity/lung/hilum/bilateral
+Nodule/lung/middle lobe/right
+Density/thorax/round/multiple
+Lung/right/hyperdistention
+Cardiac Shadow/enlarged
+Opacity/round
+Calcinosis/blood vessels
+Osteophyte/cervical vertebrae/multiple/large
+Opacity/lung/base
+Costophrenic Angle/sulcus/right/blunted
+Shoulder/right/degenerative
+Calcinosis/lung/base/left/multiple/small
+Pleural Effusion/bilateral/focal/moderate
+Pulmonary Disease, Chronic Obstructive
+Osteophyte/thoracic vertebrae/mild
+Bone Diseases, Metabolic/spine
+Catheters, Indwelling/thorax/right
+Opacity/lung/middle lobe/bilateral/focal/multiple
+Nodule/lung/lower lobe/bilateral/patchy
+Volume Loss/thorax/left
+Opacity/lung/interstitial/prominent
+Opacity/lung/lower lobe/right/large
+Implanted Medical Device/heart
+Opacity/lung/middle lobe/right/round
+Deformity/ribs/right/multiple
+Atherosclerosis/severe
+Pulmonary Edema
+Calcinosis/lymph nodes/small
+Cicatrix/pleura/base/bilateral/chronic
+Calcinosis/lung/lymph nodes/bilateral/multiple
+Calcinosis/thorax/scattered/round/multiple
+Pleural Effusion/hilum/right
+Lumbar Vertebrae/degenerative
+Cicatrix/lung/middle lobe/right/chronic
+Consolidation/lung/base/left/moderate
+Consolidation/lung/base/bilateral
+Opacity/lung/upper lobe/left/round/multiple/small
+Density/lung/bilateral/round/multiple/small
+Opacity/lung/upper lobe/left/scattered
+Heart Atria/bilateral/enlarged
+Calcinosis/lung/middle lobe/right
+Calcified Granuloma/mediastinum/large
+Opacity/heart/left
+Density/heart/small
+Diaphragm/left/elevated
+Deformity/clavicle
+Catheters, Indwelling/thorax/left
+Surgical Instruments/neck/right
+Opacity/lung/base/bilateral/focal/streaky
+Opacity/lung/bilateral/interstitial/diffuse/mild
+Opacity/lung/base/left
+Opacity/lung/middle lobe/bilateral/interstitial/round/small/mild
+Fractures, Bone/sternum
+Hyperostosis, Diffuse Idiopathic Skeletal/thoracic vertebrae
+Calcified Granuloma/mediastinum/multiple
+Lung/bilateral/hyperdistention/mild
+Density/lung/upper lobe/left/round
+Cysts/lung/bilateral/severe
+Airspace Disease/lung/base/bilateral/patchy/mild
+Cicatrix/lung/base/bilateral/mild
+Sclerosis/lumbar vertebrae
+Markings/lung/bilateral/interstitial/prominent
+Fractures, Bone/ribs/bilateral/multiple/healed
+Opacity/retrocardiac/mild
+Lung/base/bilateral/hypoinflation/mild
+Granuloma
+Surgical Instruments/thorax/right
+Nodule/thorax/scattered/multiple/small
+Consolidation/lung/upper lobe/bilateral
+Opacity/lung/right/round
+Kyphosis/thorax/severe
+Costophrenic Angle/sulcus/bilateral/blunted/mild
+Pulmonary Atelectasis/left
+Airspace Disease/lung/base/left/focal
+Thoracic Vertebrae/right/degenerative/mild
+Shift/trachea/right
+Bone and Bones/thorax/degenerative/mild
+Cardiomegaly/mild
+Catheters, Indwelling
+Opacity/lung/base/bilateral/scattered
+Mediastinum/lymph nodes/bilateral/enlarged
+Fractures, Bone/thoracic vertebrae/multiple
+Nodule/lung/right/multiple
+Fractures, Bone/ribs/right/anterior/multiple
+Arthritis
+Nodule/right/retrocardiac
+Infiltrate/lung/base/pulmonary alveoli/left
+Opacity/lung/middle lobe/bilateral/interstitial
+Pulmonary Atelectasis/lower lobe/left/focal
+Calcified Granuloma/lung/lower lobe/right/posterior/multiple
+Opacity/costophrenic angle/sulcus/right/round/multiple/small
+Markings/lung/bilateral/interstitial/diffuse
+Calcinosis/lung/hilum/lymph nodes/right/multiple
+Calcinosis/thorax/scattered/multiple
+Aorta/tortuous/prominent
+Volume Loss/lung/right
+Osteophyte/thoracic vertebrae/scattered
+Density/costophrenic angle/anterior/round
+Calcinosis/lung/right/posterior
+Markings/lung
+Sclerosis/pleura/right
+Deformity/thoracic vertebrae/anterior/moderate
+Pulmonary Congestion
+Granuloma/multiple
+Osteophyte/thoracic vertebrae/degenerative/multiple
+Nodule/lung/bilateral/diffuse/multiple/small
+Nodule/pleura/upper lobe/bilateral
+Density/lung/left/multiple
+Density/lung/right
+Surgical Instruments/heart
+Tube, Inserted/trachea
+Opacity/lung/left/round
+Hernia, Diaphragmatic
+Opacity/lung/lower lobe/right
+Calcinosis/coronary vessels/left
+Density/lung/base/right
+Pleural Effusion/small
+Density/lung/upper lobe/right/round
+Cicatrix/lung/apex/bilateral/round
+Lucency/lung/middle lobe/right/round
+Volume Loss/lung/left
+Lucency/ribs/posterior
+Cicatrix/pleura/left
+Pulmonary Emphysema/severe
+Markings/lung/base/prominent/mild
+Costophrenic Angle/sulcus/left/blunted
+Nodule/thorax/multiple/small
+Surgical Instruments/abdomen/right
+Calcified Granuloma/lung/hilum/right/multiple
+Lucency/round
+Airspace Disease/lung/right/diffuse
+Calcified Granuloma/lung/middle lobe/right
+Opacity/lung/posterior/streaky/mild
+Lumbar Vertebrae/degenerative/multiple
+Thoracic Vertebrae/degenerative/mild
+Abdomen/enlarged/severe
+Pulmonary Atelectasis/base/left/streaky/mild
+Nipple Shadow/ribs/bilateral/posterior
+Pulmonary Atelectasis/apex/right
+Spine/degenerative/chronic
+Deformity/thorax/chronic
+Density/lung/round/multiple
+Infiltrate/lung
+Deformity/thoracic vertebrae/moderate
+Markings/lung/base/bilateral/interstitial/prominent/mild
+Opacity/lung/base/right/irregular
+Opacity/lung/upper lobe/left/patchy
+Thickening/pleura/left
+Nodule/lung/lingula/prominent
+Lung/hilum/lymph nodes/bilateral
+Pulmonary Atelectasis/base/left/patchy/mild
+Cicatrix/lung/hilum/left
+Pulmonary Artery/prominent
+Consolidation/lung/lower lobe/left/retrocardiac
+Lymph Nodes/right/paratracheal/enlarged
+Nodule/lung/upper lobe/right
+Pulmonary Edema/interstitial/diffuse
+Aortic Aneurysm/aorta, thoracic
+Opacity/lung/base/bilateral/patchy/mild
+Adipose Tissue/mediastinum
+Opacity/lung/hilum/right
+Pneumonia/upper lobe/right
+Markings/lung/bilateral/diffuse/reticular/round
+Opacity/lung/base/right/reticular/multiple
+Calcinosis/mitral valve/prominent
+Density/thorax/base/left
+Consolidation/lung/multilobar
+Shoulder/bilateral/degenerative
+Pulmonary Atelectasis/right
+Lung/bilateral/interstitial/prominent
+Opacity/left/retrocardiac
+Density/lung/base/bilateral
+Lung Diseases, Interstitial/mild
+Calcinosis/lung/lower lobe/right/multiple/small
+Opacity/right
+Deformity/ribs/bilateral/chronic
+Opacity/lung/streaky
+Pleural Effusion/right/focal/multiple
+Deformity/lumbar vertebrae/anterior/mild
+Foreign Bodies/multiple/small
+Humerus/bilateral/degenerative
+Pulmonary Atelectasis/base/bilateral
+Airspace Disease/lung/upper lobe/right
+Pulmonary Atelectasis/base/left
+Mastectomy/left
+Airspace Disease/lung/base/left
+Diaphragm/flattened
+Cicatrix/pleura/base/bilateral
+Airspace Disease/lung/mild
+Opacity/lung/base/bilateral/interstitial/diffuse/mild
+Markings/lung/upper lobe/right/interstitial/focal
+Infiltrate/lung/base/left/patchy
+Pleural Effusion/bilateral/small
+Markings/lung/interstitial/scattered/irregular/chronic
+Markings/lung/interstitial/diffuse/mild
+Opacity/lung/lower lobe/left
+Density/right/paratracheal/multiple
+Catheters, Indwelling/abdomen/right
+Hernia, Hiatal
+Cardiomegaly
+Lung Diseases, Interstitial/chronic/mild
+Epicardial Fat/bilateral/prominent
+Fractures, Bone/ribs/right/healed
+Surgical Instruments/right
+Osteophyte/thoracic vertebrae/degenerative
+Infiltrate/lung/hilum/left
+Opacity/lung/upper lobe/left
+Consolidation/lung/bilateral
+Diaphragmatic Eventration
+Pneumothorax/apex/right
+Thickening/pleura/upper lobe/left
+Foreign Bodies
+Airspace Disease/lung/base/left/streaky
+Deformity/clavicle/right
+Opacity/retrocardiac/patchy
+Lung/bilateral/hypoinflation/mild
+Markings/bilateral/bronchovascular/mild
+Pneumonia/lower lobe/left
+Pulmonary Atelectasis/base/right/focal
+Density/right/paratracheal
+Fractures, Bone/ribs/right/multiple
+Pulmonary Atelectasis/right/mild
+Mediastinum/blood vessels/prominent
+Contrast Media/esophagus
+Calcified Granuloma/lung/apex/right/small
+Density/cardiophrenic angle/left
+Catheters, Indwelling/right
+Opacity/lung/base/bilateral/reticular/multiple/mild
+Consolidation/lung/middle lobe/right
+Cicatrix/lung/bilateral/severe
+Osteophyte/thoracic vertebrae/degenerative/mild
+Pleural Effusion/right
+Opacity/thoracic vertebrae
+Sclerosis/spine
+Fractures, Bone/clavicle/left/healed
+Density/lung/middle lobe/right/round
+Opacity/mediastinum/right
+Pleural Effusion/base/right
+Calcified Granuloma/costophrenic angle/right
+Stents/aorta
+Density/lung/lower lobe/bilateral/patchy

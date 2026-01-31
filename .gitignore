@@ -1,0 +1,33 @@
+# 1. 屏蔽 Python 编译产生的垃圾文件
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 2. 屏蔽虚拟环境 (千万别传这个，几万个文件会卡死)
+venv/
+.venv/
+env/
+.env
+
+# 3. 屏蔽大模型权重文件 (这些要去服务器单独传，不要进 Git)
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+*.h5
+
+# 4. 屏蔽数据集和日志目录
+dataset/
+data/
+outputs/
+logs/
+wandb/       # 如果你用 weights & biases 记录实验，这个文件夹很大
+runs/        # Tensorboard 的日志文件夹
+archive/
+
+# 5. 屏蔽 IDE 和系统的配置文件
+.vscode/
+.idea/
+.DS_Store    # Mac 系统的垃圾文件
