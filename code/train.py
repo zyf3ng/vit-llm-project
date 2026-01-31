@@ -9,7 +9,7 @@ import numpy as np
 from sklearn.metrics import f1_score
 
 from dataset import ChestXrayDataset
-from model import MultiModalNet, MultiModalNet_NoRegion
+from model import MultiModalNet
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
