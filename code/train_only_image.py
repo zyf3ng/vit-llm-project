@@ -173,10 +173,6 @@ def main():
             if patience_counter >= PATIENCE:
                 print(f"\n触发早停，训练结束。")
                 break
-
-    print("\n=============== Test Evaluation (Image Only) ===============")
-    model.load_state_dict(torch.load(best_model_path))
-    t_loss, t_spec, t_reg, t_f1_s, t_f1_r = eval_epoch(model, test_loader, criterion, DEVICE)
     
     print("\n===============test===============")
     model.load_state_dict(torch.load(best_model_path))
