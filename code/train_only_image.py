@@ -4,7 +4,6 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, random_split
 from tqdm import tqdm
-import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import f1_score
 
