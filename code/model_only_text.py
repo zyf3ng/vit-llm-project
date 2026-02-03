@@ -18,9 +18,15 @@ class MultiModalNet_OnlyText(nn.Module):
 
         txt_feats, txt_mask = self.text_encoder(text_list)
         
-        txt_feats_cls = txt_feats[:, 0, :] 
+        input_mask_expanded = txt_mask.unsqueeze(-1).expand(txt_feats.size()).float()
+
+        sum_embeddings = torch.sum(txt_feats * input_mask_expanded, 1)
+
+        sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+
+        feature = sum_embeddings / sum_mask
         
-        features = self.dropout(txt_feats_cls)
+        features = self.dropout(feature)
         
         logits_specific = self.classifier_specific(features)
 
