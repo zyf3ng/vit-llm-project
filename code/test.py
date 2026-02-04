@@ -37,10 +37,11 @@ def eval_epoch(model, loader, criterion, device):
     with torch.no_grad():
         loop = tqdm(loader, desc="Validating", leave=False)
         for batch_imgs, batch_txts, batch_lbl_spec, batch_lbl_reg in loop:
+            imgs = batch_imgs.to(device)
             lbl_spec = batch_lbl_spec.to(device)
             lbl_reg = batch_lbl_reg.to(device)
             
-            out_spec, out_reg = model(batch_imgs, batch_txts)
+            out_spec, out_reg = model(imgs, batch_txts)
             
             loss_spec = criterion(out_spec, lbl_spec)
             loss_reg = criterion(out_reg, lbl_reg)
