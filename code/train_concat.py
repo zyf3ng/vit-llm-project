@@ -14,7 +14,7 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 BATCH_SIZE = 16
-LEARNING_RATE = 5e-5 
+LEARNING_RATE = 5e-4 
 NUM_EPOCHS = 100 
 PATIENCE = 10
 NUM_WORKERS = 4

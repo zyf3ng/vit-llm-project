@@ -15,7 +15,6 @@ class MultiModalNet_OnlyText(nn.Module):
         self.classifier_region = nn.Linear(d_model, num_region)
         
     def forward(self, images, text_list):
-
         txt_feats, txt_mask = self.text_encoder(text_list)
         
         input_mask_expanded = txt_mask.unsqueeze(-1).expand(txt_feats.size()).float()
