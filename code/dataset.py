@@ -1,6 +1,7 @@
 import os
 import torch
 import pandas as pd
+import re
 from PIL import Image
 from torch.utils.data import Dataset
 from torchvision import transforms
@@ -35,11 +36,87 @@ class ChestXrayDataset(Dataset):
             'Pleural & Space', 'Foreign Object'
         ]
 
+        self.BANNED_PATTERNS = [
+            # ============================================
+            # 1. 核心病变类 (直接对应 Class Name)
+            # ============================================
+            r"pneumonia",
+            r"pneumothorax",
+            r"effusion",
+            r"atelectasis",
+            r"edema",
+            r"fibrosis",
+            r"emphysema",
+            r"hernia",
+            r"nodule",
+            r"granuloma",
+            r"mass",
+            r"fracture", 
+            r"scar",
+
+            # ============================================
+            # 2. 视觉特征类 (直接对应 Class Name)
+            # ============================================
+            r"opacity", r"opacities",
+            r"hyperaeration",
+            r"hyperlucent", r"lucency",
+            r"hypoinflation",
+            r"calcinosis", r"calcifi",
+            r"blunting", r"blunted",
+            r"elevation", r"elevated",
+            r"flattening", r"flattened",
+            r"diaphragm",
+
+            # ============================================
+            # 3. 骨骼与脊柱类 (直接对应 Class Name)
+            # ============================================
+            r"spondylosis", r"degenerative",
+            r"deformity", r"scoliosis", r"kyphosis",
+            r"arthrit",
+            r"metabolic",
+
+            # ============================================
+            # 4. 心脏与血管类 (直接对应 Class Name)
+            # ============================================
+            r"cardiomegaly", r"enlarged heart",
+            r"mediastin",
+            r"atherosclerosis",
+            r"tortuous", r"aorta", 
+
+            # ============================================
+            # 5. 装置与异物类 (增强版 - 包含所有常见器械)
+            # ============================================
+            r"device", r"hardware", r"instrument", r"prosthesis", r"implant",
+            r"catheter", r"tube", r"wire", r"lead",
+            r"port", 
+            r"pacemaker", r"valve", r"clip", r"sternotomy", r"suture",
+            r"foreign", r"object"
+        ]
+
         self.transform = transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         ])
+
+    def sanitize_text(self, text):
+        if pd.isna(text) or str(text).strip() == "":
+            return "No findings reported."
+            
+        text = str(text).lower()
+        
+        replacement = "[MASK]" 
+        
+        for pattern in self.BANNED_PATTERNS:
+            regex = r'\b' + pattern + r'[a-z]*\b'
+            text = re.sub(regex, replacement, text)
+
+        text = re.sub(r'\s+', ' ', text).strip()
+        
+        if text.replace("[MASK]", "").strip() == "" or text == ".":
+             return "No acute [MASK]."
+            
+        return text
 
     def __len__(self):
         return len(self.df)
@@ -57,7 +134,10 @@ class ChestXrayDataset(Dataset):
 
         findings = str(self.df.iloc[idx]['findings'])
         impression = str(self.df.iloc[idx]['impression'])
+        
         full_text = f"Findings: {findings} Impression: {impression}"
+        
+        clean_text = self.sanitize_text(full_text)
 
         label_specific = self.df.iloc[idx][self.specific_classes].values.astype('float32')
         label_specific = torch.tensor(label_specific)
@@ -65,11 +145,9 @@ class ChestXrayDataset(Dataset):
         label_region = self.df.iloc[idx][self.region_classes].values.astype('float32')
         label_region = torch.tensor(label_region)
 
-        return image, full_text, label_specific, label_region
+        return image, clean_text, label_specific, label_region
 
 if __name__ == "__main__":
-    from torch.utils.data import DataLoader
-    
     current_dir = os.path.dirname(os.path.abspath(__file__))
     report_csv = os.path.join(current_dir, '..', 'archive', 'indiana_reports.csv')
     label_csv = os.path.join(current_dir, '..', 'dataset_with_labels_2.csv')
@@ -78,6 +156,13 @@ if __name__ == "__main__":
     dataset = ChestXrayDataset(report_csv, label_csv, img_folder)
     print(f"Dataset 长度: {len(dataset)}")
         
+    for i in range(5):
+        _, txt, lbl, _ = dataset[i]
+        raw_find = dataset.df.iloc[i]['findings']
+        print(f"\n[样本 {i}]")
+        print(f"原始: {raw_find[:100]}...")
+        print(f"清洗: {txt}")
+    
     img, txt, lbl_spec, lbl_reg = dataset[0]
     print(f"Specific Labels 形状: {lbl_spec.shape}")
     print(f"Region Labels 形状: {lbl_reg.shape}")
