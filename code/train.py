@@ -29,48 +29,84 @@ IMG_DIR = os.path.join(CURRENT_DIR, '..', 'archive', 'images', 'images_normalize
 SAVE_DIR = os.path.join(CURRENT_DIR, '..', 'model_loss_21')
 
 def plot_analysis(history, save_path):
-    epochs = range(1, len(history['train_loss']) + 1)
+    epochs = list(range(1, len(history['train_loss']) + 1))
     
     fig, axes = plt.subplots(3, 2, figsize=(15, 12))
     
+    # 辅助函数：给关键点打标签
+    def annotate_points(ax, x, y, mode='max', color='red'):
+        """
+        mode: 'max' 找最大值标注 (适合 F1), 'min' 找最小值标注 (适合 Loss)
+        """
+        y = np.array(y)
+        if mode == 'max':
+            idx = np.argmax(y)
+        else:
+            idx = np.argmin(y)
+            
+        # 标注最佳值
+        ax.annotate(f'{y[idx]:.4f}', (x[idx], y[idx]), 
+                    xytext=(0, 10), textcoords='offset points', 
+                    ha='center', fontsize=9, color=color, fontweight='bold',
+                    arrowprops=dict(arrowstyle="->", color=color))
+        
+        # 标注最后一个值 (如果它不是最佳值的话)
+        if idx != len(x) - 1:
+            last_x, last_y = x[-1], y[-1]
+            ax.annotate(f'{last_y:.4f}', (last_x, last_y), 
+                        xytext=(0, 10), textcoords='offset points', 
+                        ha='center', fontsize=8, color='black')
+
+    # --- 1. Total Loss ---
     ax = axes[0, 0]
-    ax.plot(epochs, history['train_loss'], label='Train Loss', color='blue')
+    ax.plot(epochs, history['train_loss'], label='Train Loss', color='blue', alpha=0.6)
     ax.plot(epochs, history['val_loss'], label='Val Loss', color='red', linestyle='--')
+    annotate_points(ax, epochs, history['val_loss'], mode='min') # 标出最低 Loss
     ax.set_title('Total Loss')
     ax.legend()
     ax.grid(True)
     
+    # --- 2. Total F1 ---
     ax = axes[0, 1]
     ax.plot(epochs, history['val_f1_total'], label='Val Total F1', color='red', marker='.')
+    annotate_points(ax, epochs, history['val_f1_total'], mode='max') # 标出最高 F1
     ax.set_title('Total F1-Score')
     ax.set_ylim(0, 1)
     ax.legend()
     ax.grid(True)
     
+    # --- 3. Spec Loss ---
     ax = axes[1, 0]
-    ax.plot(epochs, history['train_spec'], label='Train Spec Loss', color='green')
+    ax.plot(epochs, history['train_spec'], label='Train Spec Loss', color='green', alpha=0.6)
     ax.plot(epochs, history['val_spec'], label='Val Spec Loss', color='orange', linestyle='--')
+    annotate_points(ax, epochs, history['val_spec'], mode='min')
     ax.set_title('Specific Loss')
     ax.legend()
     ax.grid(True)
     
+    # --- 4. Spec F1 ---
     ax = axes[1, 1]
     ax.plot(epochs, history['val_f1_spec'], label='Val Spec F1', color='orange', marker='.')
+    annotate_points(ax, epochs, history['val_f1_spec'], mode='max')
     ax.set_title('Specific F1-Score')
     ax.set_ylim(0, 1)
     ax.legend()
     ax.grid(True)
 
+    # --- 5. Reg Loss ---
     ax = axes[2, 0]
-    ax.plot(epochs, history['train_reg'], label='Train Reg Loss', color='purple')
+    ax.plot(epochs, history['train_reg'], label='Train Reg Loss', color='purple', alpha=0.6)
     ax.plot(epochs, history['val_reg'], label='Val Reg Loss', color='pink', linestyle='--')
+    annotate_points(ax, epochs, history['val_reg'], mode='min')
     ax.set_title('Region Loss')
     ax.set_xlabel('Epochs')
     ax.legend()
     ax.grid(True)
     
+    # --- 6. Reg F1 ---
     ax = axes[2, 1]
     ax.plot(epochs, history['val_f1_reg'], label='Val Reg F1', color='pink', marker='.')
+    annotate_points(ax, epochs, history['val_f1_reg'], mode='max')
     ax.set_title('Region F1-Score')
     ax.set_xlabel('Epochs')
     ax.set_ylim(0, 1)
@@ -81,7 +117,7 @@ def plot_analysis(history, save_path):
     plt.savefig(save_path)
     plt.close()
 
-def train_epoch(model, loader, criterion, optimizer, device):
+def train_epoch(model, loader, criterion, optimizer, device, dropout_prob):
     model.train()
     total_loss = 0
     total_spec = 0
@@ -96,7 +132,7 @@ def train_epoch(model, loader, criterion, optimizer, device):
         
         final_txt_input = list(batch_txts) 
         
-        dropout_prob = 0.3
+        #dropout_prob = 0.3
         
         for i in range(len(final_txt_input)):
             if random.random() < dropout_prob:
@@ -229,7 +265,12 @@ def main():
     for epoch in range(NUM_EPOCHS):
         print(f"\n--- Epoch {epoch+1}/{NUM_EPOCHS} ---")
         
-        t_loss, t_spec, t_reg = train_epoch(model, train_loader, criterion, optimizer, DEVICE)
+        if epoch < 20:
+            current_dropout = 0.4 - (epoch / 20) * 0.3
+        else:
+            current_dropout = 0.1
+
+        t_loss, t_spec, t_reg = train_epoch(model, train_loader, criterion, optimizer, DEVICE,current_dropout)
         
         v_loss, v_spec, v_reg, v_f1_t, v_f1_s, v_f1_r = eval_epoch(model, val_loader, criterion, DEVICE)    
         
