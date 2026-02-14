@@ -9,23 +9,17 @@ from tqdm import tqdm
 from dataset import ChestXrayDataset
 from model import MultiModalNet 
 
-# ================= 配置区域 =================
-# 显卡设置
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 BATCH_SIZE = 16
 NUM_WORKERS = 4
 
-# 路径 (根据你的实际路径修改)
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORT_CSV = os.path.join(CURRENT_DIR, '..', 'archive', 'indiana_reports.csv')
 LABEL_CSV = os.path.join(CURRENT_DIR, '..', 'dataset_with_labels_2.csv')
 IMG_DIR = os.path.join(CURRENT_DIR, '..', 'archive', 'images', 'images_normalized')
 
-# 🔥 模型权重路径 (改成你那个 5e-5 或 5e-4 的 best_model.pth)
-BEST_MODEL_PATH = os.path.join(CURRENT_DIR, '..', 'model_loss_41_2', 'best_model.pth')
-# ===========================================
+BEST_MODEL_PATH = os.path.join(CURRENT_DIR, '..', 'model_loss_21', 'best_model.pth')
 
-# 1. 这里是你刚才要求的 eval_image_shuffle 函数
 def eval_image_shuffle(model, loader, criterion, device):
     model.eval()
     total_loss = 0
@@ -37,23 +31,30 @@ def eval_image_shuffle(model, loader, criterion, device):
 
     
     with torch.no_grad():
-        # 这里的 desc 改一下，方便你看进度
         loop = tqdm(loader, desc="Testing", leave=True)
         for batch_imgs, batch_txts, batch_lbl_spec, batch_lbl_reg in loop:
             imgs = batch_imgs.to(device)
             lbl_spec = batch_lbl_spec.to(device)
             lbl_reg = batch_lbl_reg.to(device)
             
-            # 🔥 核心修改：图片错位 (Batch 内向后移一位)
-            shuffled_imgs = torch.roll(imgs, shifts=1, dims=0)
+            #final_txt_input = list(batch_txts) 
+            #for i in range(len(final_txt_input)):
+            #    final_txt_input[i] = ""
+
+            #idx = torch.randperm(imgs.size(0)).to(device)
+            #shuffled_imgs = imgs[idx]
             
-            # 喂给模型：错图 + 对文
-            out_spec, out_reg = model(shuffled_imgs, batch_txts)
+            #out_spec, out_reg = model(shuffled_imgs, batch_txts)
             
-            # 计算 Loss
+            #out_spec, out_reg = model(imgs, final_txt_input)
+
+            black_imgs = torch.zeros_like(batch_imgs).to(device)
+
+            out_spec, out_reg = model(black_imgs, batch_txts)
+            
             loss_spec = criterion(out_spec, lbl_spec)
             loss_reg = criterion(out_reg, lbl_reg)
-            loss = 4.0 * loss_spec + loss_reg  # 保持和你训练时一样的权重
+            loss = 2.0 * loss_spec + loss_reg
             
             total_loss += loss.item()
             total_spec += loss_spec.item()
@@ -75,7 +76,6 @@ def eval_image_shuffle(model, loader, criterion, device):
     P_reg = np.vstack(preds_reg)
     L_reg = np.vstack(labels_reg)
     
-    # 计算 F1
     f1_s = f1_score(L_spec, P_spec, average='micro')
     f1_r = f1_score(L_reg, P_reg, average='micro')
     
@@ -85,10 +85,9 @@ def eval_image_shuffle(model, loader, criterion, device):
     
     return avg_loss, avg_spec, avg_reg, f1_t, f1_s, f1_r
 
-# 2. Main 函数：负责加载数据和模型，并【调用】上面的函数
 def main():
 
-    full_dataset = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR)
+    full_dataset = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR,split='val')
     total_len = len(full_dataset)
     train_size = int(0.7 * total_len)
     val_size = int(0.2 * total_len)
@@ -115,7 +114,6 @@ def main():
 
     val_loss, val_spec, val_reg, f1_t, f1_s, f1_r = eval_image_shuffle(model, test_loader, criterion, DEVICE)
     
-    # --- E. 打印最终结果 ---
     print()
     print(f"Total F1  : {f1_t:.4f}")
     print(f"Spec F1   : {f1_s:.4f}")

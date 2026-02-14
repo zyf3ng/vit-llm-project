@@ -7,6 +7,8 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import f1_score
+from torch.utils.data import Subset
+import random
 
 from dataset import ChestXrayDataset
 from model import MultiModalNet
@@ -24,7 +26,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORT_CSV = os.path.join(CURRENT_DIR, '..', 'archive', 'indiana_reports.csv')
 LABEL_CSV = os.path.join(CURRENT_DIR, '..', 'dataset_with_labels_2.csv')
 IMG_DIR = os.path.join(CURRENT_DIR, '..', 'archive', 'images', 'images_normalized')
-SAVE_DIR = os.path.join(CURRENT_DIR, '..', 'model_loss_41')
+SAVE_DIR = os.path.join(CURRENT_DIR, '..', 'model_loss_21')
 
 def plot_analysis(history, save_path):
     epochs = range(1, len(history['train_loss']) + 1)
@@ -92,11 +94,19 @@ def train_epoch(model, loader, criterion, optimizer, device):
         lbl_spec = batch_lbl_spec.to(device)
         lbl_reg = batch_lbl_reg.to(device)
         
-        out_spec, out_reg = model(imgs, batch_txts)
+        final_txt_input = list(batch_txts) 
+        
+        dropout_prob = 0.3
+        
+        for i in range(len(final_txt_input)):
+            if random.random() < dropout_prob:
+                final_txt_input[i] = "" 
+        
+        out_spec, out_reg = model(imgs, final_txt_input)
         
         loss_spec = criterion(out_spec, lbl_spec)
         loss_reg = criterion(out_reg, lbl_reg)
-        loss = 4.0 * loss_spec + loss_reg
+        loss = 2.0 * loss_spec + loss_reg
         
         optimizer.zero_grad()
         loss.backward()
@@ -131,7 +141,7 @@ def eval_epoch(model, loader, criterion, device):
             
             loss_spec = criterion(out_spec, lbl_spec)
             loss_reg = criterion(out_reg, lbl_reg)
-            loss = 4.0 * loss_spec + loss_reg
+            loss = 2.0 * loss_spec + loss_reg
             
             total_loss += loss.item()
             total_spec += loss_spec.item()
@@ -168,8 +178,10 @@ def main():
         
     print(f"使用设备: {DEVICE}")
     
-    full_dataset = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR)
-    total_len = len(full_dataset)
+    train_ds_full = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR, split='train')
+    val_ds_full = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR, split='val')
+
+    total_len = len(train_ds_full)
     print(f"数据总数: {total_len}")
     
     train_size = int(0.7 * total_len)
@@ -182,11 +194,18 @@ def main():
     
     generator = torch.Generator().manual_seed(37)
     
-    train_dataset, val_dataset, test_dataset = random_split(
-        full_dataset, [train_size, val_size, test_size],
+    train_sub, val_sub, test_sub = random_split(
+        train_ds_full, 
+        [train_size, val_size, test_size],
         generator=generator
     )
+
+    train_dataset = train_sub 
     
+    val_dataset = Subset(val_ds_full, val_sub.indices)
+    
+    test_dataset = Subset(val_ds_full, test_sub.indices)
+
     train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=NUM_WORKERS)
     val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=NUM_WORKERS)
     test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=NUM_WORKERS)

@@ -8,8 +8,10 @@ from torchvision import transforms
 from torch.utils.data import DataLoader
 
 class ChestXrayDataset(Dataset):
-    def __init__(self, report_csv, label_csv, img_dir):
+    def __init__(self, report_csv, label_csv, img_dir, split='train'):
         self.img_dir = img_dir
+        self.split = split
+
         df_reports = pd.read_csv(report_csv)
         df_labels = pd.read_csv(label_csv)
         
@@ -93,11 +95,24 @@ class ChestXrayDataset(Dataset):
             r"foreign", r"object"
         ]
 
-        self.transform = transforms.Compose([
-            transforms.Resize((224, 224)),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-        ])
+        normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+
+        if self.split == 'train':
+            self.transform = transforms.Compose([
+                transforms.Resize((256, 256)),
+                transforms.RandomResizedCrop(224, scale=(0.8, 1.0)), 
+                transforms.RandomHorizontalFlip(p=0.5),
+                transforms.RandomRotation(degrees=7),
+                transforms.ColorJitter(brightness=0.2, contrast=0.2),
+                transforms.ToTensor(),
+                normalize
+            ])
+        else:
+            self.transform = transforms.Compose([
+                transforms.Resize((224, 224)), 
+                transforms.ToTensor(),
+                normalize
+            ])
 
     def sanitize_text(self, text):
         if pd.isna(text) or str(text).strip() == "":
@@ -174,5 +189,4 @@ if __name__ == "__main__":
         print(f"Batch 文本数量: {len(batch_txts)}")
         print(f"Batch Specific Labels 形状: {batch_lbl_spec.shape}")
         print(f"Batch Region Labels 形状: {batch_lbl_reg.shape}")
-
         break

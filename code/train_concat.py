@@ -42,7 +42,7 @@ def train_epoch(model, loader, criterion, optimizer, device):
         
         loss_spec = criterion(out_spec, lbl_spec)
         loss_reg = criterion(out_reg, lbl_reg)
-        loss = 4.0 * loss_spec + loss_reg
+        loss = 2.0 * loss_spec + loss_reg
         
         optimizer.zero_grad()
         loss.backward()
@@ -77,7 +77,7 @@ def eval_epoch(model, loader, criterion, device):
             
             loss_spec = criterion(out_spec, lbl_spec)
             loss_reg = criterion(out_reg, lbl_reg)
-            loss = 4.0 * loss_spec + loss_reg
+            loss = 2.0 * loss_spec + loss_reg
             
             total_loss += loss.item()
             total_spec += loss_spec.item()
