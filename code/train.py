@@ -117,7 +117,7 @@ def plot_analysis(history, save_path):
     plt.savefig(save_path)
     plt.close()
 
-def train_epoch(model, loader, criterion, optimizer, device, dropout_prob):
+def train_epoch(model, loader, criterion, optimizer, device):
     model.train()
     total_loss = 0
     total_spec = 0
@@ -132,7 +132,7 @@ def train_epoch(model, loader, criterion, optimizer, device, dropout_prob):
         
         final_txt_input = list(batch_txts) 
         
-        #dropout_prob = 0.3
+        dropout_prob = 0.3
         
         for i in range(len(final_txt_input)):
             if random.random() < dropout_prob:
@@ -264,13 +264,8 @@ def main():
     
     for epoch in range(NUM_EPOCHS):
         print(f"\n--- Epoch {epoch+1}/{NUM_EPOCHS} ---")
-        
-        if epoch < 20:
-            current_dropout = 0.4 - (epoch / 20) * 0.3
-        else:
-            current_dropout = 0.1
 
-        t_loss, t_spec, t_reg = train_epoch(model, train_loader, criterion, optimizer, DEVICE,current_dropout)
+        t_loss, t_spec, t_reg = train_epoch(model, train_loader, criterion, optimizer, DEVICE)
         
         v_loss, v_spec, v_reg, v_f1_t, v_f1_s, v_f1_r = eval_epoch(model, val_loader, criterion, DEVICE)    
         
