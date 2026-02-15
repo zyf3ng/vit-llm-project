@@ -39,9 +39,7 @@ class ChestXrayDataset(Dataset):
         ]
 
         self.BANNED_PATTERNS = [
-            # ============================================
-            # 1. 核心病变类 (直接对应 Class Name)
-            # ============================================
+            # 核心病变类 (直接对应 Class Name)
             r"pneumonia",
             r"pneumothorax",
             r"effusion",
@@ -56,9 +54,7 @@ class ChestXrayDataset(Dataset):
             r"fracture", 
             r"scar",
 
-            # ============================================
-            # 2. 视觉特征类 (直接对应 Class Name)
-            # ============================================
+            # 视觉特征类 (直接对应 Class Name)
             r"opacity", r"opacities",
             r"hyperaeration",
             r"hyperlucent", r"lucency",
@@ -69,30 +65,32 @@ class ChestXrayDataset(Dataset):
             r"flattening", r"flattened",
             r"diaphragm",
 
-            # ============================================
-            # 3. 骨骼与脊柱类 (直接对应 Class Name)
-            # ============================================
+            # 骨骼与脊柱类 (直接对应 Class Name)
             r"spondylosis", r"degenerative",
             r"deformity", r"scoliosis", r"kyphosis",
             r"arthrit",
             r"metabolic",
 
-            # ============================================
-            # 4. 心脏与血管类 (直接对应 Class Name)
-            # ============================================
+            # 心脏与血管类 (直接对应 Class Name)
             r"cardiomegaly", r"enlarged heart",
             r"mediastin",
             r"atherosclerosis",
             r"tortuous", r"aorta", 
 
-            # ============================================
-            # 5. 装置与异物类 (增强版 - 包含所有常见器械)
-            # ============================================
+            # 装置与异物类 (增强版 - 包含所有常见器械)
             r"device", r"hardware", r"instrument", r"prosthesis", r"implant",
             r"catheter", r"tube", r"wire", r"lead",
             r"port", 
             r"pacemaker", r"valve", r"clip", r"sternotomy", r"suture",
-            r"foreign", r"object"
+            r"foreign", r"object",
+
+            # 正常/无恙类
+            r"normal", r"clear", r"unremarkable", r"intact", r"stable", r"free",
+            r"grossly", r"within limits", r"negative",
+
+            # 程度副词
+            r"mild", r"moderate", r"severe", r"acute", r"chronic", r"small", r"large",
+            r"bilateral", r"left", r"right", r"upper", r"lower"
         ]
 
         normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
@@ -119,6 +117,8 @@ class ChestXrayDataset(Dataset):
             return "No findings reported."
             
         text = str(text).lower()
+
+        text = re.sub(r'([.,;?!])', r' \1 ', text)
         
         replacement = "[MASK]" 
         
@@ -128,9 +128,6 @@ class ChestXrayDataset(Dataset):
 
         text = re.sub(r'\s+', ' ', text).strip()
         
-        if text.replace("[MASK]", "").strip() == "" or text == ".":
-             return "No acute [MASK]."
-            
         return text
 
     def __len__(self):
