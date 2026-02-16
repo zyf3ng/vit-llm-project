@@ -25,27 +25,36 @@ class MultiModalNet(nn.Module):
         
         self.classifier_region = nn.Linear(d_model, num_region)
         
-    def forward(self, images, text_list):
+    def forward(self, images, text_list=None):
         img_feats = self.image_encoder(images)
         
-        txt_feats, txt_mask = self.text_encoder(text_list)
-        
-        padding_mask = (txt_mask == 0).bool()
-        
-        attn_output, _ = self.cross_attention(
-            query = img_feats,
-            key = txt_feats,
-            value = txt_feats,
-            key_padding_mask = padding_mask
-        )
-        
+        is_pure_vision = False
+        if text_list is None:
+            is_pure_vision = True
+        elif isinstance(text_list, list) and all(t == "" for t in text_list):
+            is_pure_vision = True
+            
+        if is_pure_vision:
+            attn_output = torch.zeros_like(img_feats)
+            
+        else:
+            txt_feats, txt_mask = self.text_encoder(text_list)
+            
+            padding_mask = (txt_mask == 0).bool()
+            
+            attn_output, _ = self.cross_attention(
+                query = img_feats,
+                key = txt_feats,
+                value = txt_feats,
+                key_padding_mask = padding_mask
+            )
+
         fused_feats = self.ln(img_feats + attn_output)
         
         cls_feat = fused_feats[:, 0, :]
         cls_feat = self.dropout(cls_feat)
         
         logits_specific = self.classifier_specific(cls_feat)
-        
         logits_region = self.classifier_region(cls_feat)
         
         return logits_specific, logits_region

@@ -19,7 +19,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 BATCH_SIZE = 16
 LEARNING_RATE = 5e-5
 NUM_EPOCHS = 100
-PATIENCE = 10
+PATIENCE = 20
 NUM_WORKERS = 4
 alpha = 1.0
 
@@ -155,7 +155,7 @@ def train_epoch(model, loader, criterion, optimizer, device):
         loss_reg_vis = criterion(out_reg_vis, lbl_reg)
         loss_vis = alpha * loss_spec_vis + loss_reg_vis
         
-        lam = 0.1
+        lam = 1.0
         loss = loss_mm + lam * loss_vis
         
         optimizer.zero_grad()
