@@ -130,32 +130,34 @@ def train_epoch(model, loader, criterion, optimizer, device):
         lbl_spec = batch_lbl_spec.to(device)
         lbl_reg = batch_lbl_reg.to(device)
         
-        final_txt_input = list(batch_txts) 
+        out_spec_mm, out_reg_mm = model(imgs, batch_txts)
         
-        dropout_prob = 0.3
+        loss_spec_mm = criterion(out_spec_mm, lbl_spec)
+        loss_reg_mm = criterion(out_reg_mm, lbl_reg)
+        loss_mm = 2.0 * loss_spec_mm + loss_reg_mm
         
-        for i in range(len(final_txt_input)):
-            if random.random() < dropout_prob:
-                final_txt_input[i] = "" 
+        empty_txts = [""] * len(batch_txts) 
+        out_spec_vis, out_reg_vis = model(imgs, empty_txts)
         
-        out_spec, out_reg = model(imgs, final_txt_input)
+        loss_spec_vis = criterion(out_spec_vis, lbl_spec)
+        loss_reg_vis = criterion(out_reg_vis, lbl_reg)
+        loss_vis = 2.0 * loss_spec_vis + loss_reg_vis
         
-        loss_spec = criterion(out_spec, lbl_spec)
-        loss_reg = criterion(out_reg, lbl_reg)
-        loss = 2.0 * loss_spec + loss_reg
+        alpha = 0.1
+        loss = loss_mm + alpha * loss_vis
         
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
         
         total_loss += loss.item()
-        total_spec += loss_spec.item()
-        total_reg += loss_reg.item()
+        total_spec += loss_spec_mm.item()
+        total_reg += loss_reg_mm.item()
+        
         loop.set_postfix(loss=loss.item())
     
     n = len(loader)   
     return total_loss/n, total_spec/n, total_reg/n
-
 
 def eval_epoch(model, loader, criterion, device):
     model.eval()
