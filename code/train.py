@@ -29,85 +29,96 @@ IMG_DIR = os.path.join(CURRENT_DIR, '..', 'archive', 'images', 'images_normalize
 SAVE_DIR = os.path.join(CURRENT_DIR, '..', 'model_loss_21')
 
 def plot_analysis(history, save_path):
+    # 这里的 epochs 依然是 X 轴
     epochs = list(range(1, len(history['train_loss']) + 1))
     
-    fig, axes = plt.subplots(3, 2, figsize=(15, 12))
+    # 改动1：把画布变高，变成 4 行 2 列 (figsize=(15, 16))
+    fig, axes = plt.subplots(4, 2, figsize=(15, 16))
     
-    # 辅助函数：给关键点打标签
+    # 辅助函数 (保持不变)
     def annotate_points(ax, x, y, mode='max', color='red'):
-        """
-        mode: 'max' 找最大值标注 (适合 F1), 'min' 找最小值标注 (适合 Loss)
-        """
+        if len(y) == 0: return # 防止空数据报错
         y = np.array(y)
         if mode == 'max':
             idx = np.argmax(y)
         else:
             idx = np.argmin(y)
-            
-        # 标注最佳值
         ax.annotate(f'{y[idx]:.4f}', (x[idx], y[idx]), 
                     xytext=(0, 10), textcoords='offset points', 
                     ha='center', fontsize=9, color=color, fontweight='bold',
                     arrowprops=dict(arrowstyle="->", color=color))
-        
-        # 标注最后一个值 (如果它不是最佳值的话)
         if idx != len(x) - 1:
             last_x, last_y = x[-1], y[-1]
             ax.annotate(f'{last_y:.4f}', (last_x, last_y), 
                         xytext=(0, 10), textcoords='offset points', 
                         ha='center', fontsize=8, color='black')
 
-    # --- 1. Total Loss ---
+    # --- 1. Total (MM) ---
     ax = axes[0, 0]
     ax.plot(epochs, history['train_loss'], label='Train Loss', color='blue', alpha=0.6)
     ax.plot(epochs, history['val_loss'], label='Val Loss', color='red', linestyle='--')
-    annotate_points(ax, epochs, history['val_loss'], mode='min') # 标出最低 Loss
-    ax.set_title('Total Loss')
+    annotate_points(ax, epochs, history['val_loss'], mode='min')
+    ax.set_title('Total Loss (Multimodal)')
     ax.legend()
     ax.grid(True)
     
-    # --- 2. Total F1 ---
     ax = axes[0, 1]
     ax.plot(epochs, history['val_f1_total'], label='Val Total F1', color='red', marker='.')
-    annotate_points(ax, epochs, history['val_f1_total'], mode='max') # 标出最高 F1
-    ax.set_title('Total F1-Score')
+    annotate_points(ax, epochs, history['val_f1_total'], mode='max')
+    ax.set_title('Total F1 (Multimodal)')
     ax.set_ylim(0, 1)
     ax.legend()
     ax.grid(True)
     
-    # --- 3. Spec Loss ---
+    # --- 2. Spec (MM) ---
     ax = axes[1, 0]
-    ax.plot(epochs, history['train_spec'], label='Train Spec Loss', color='green', alpha=0.6)
-    ax.plot(epochs, history['val_spec'], label='Val Spec Loss', color='orange', linestyle='--')
+    ax.plot(epochs, history['train_spec'], label='Train Spec', color='green', alpha=0.6)
+    ax.plot(epochs, history['val_spec'], label='Val Spec', color='orange', linestyle='--')
     annotate_points(ax, epochs, history['val_spec'], mode='min')
-    ax.set_title('Specific Loss')
+    ax.set_title('Specific Loss (Multimodal)')
     ax.legend()
     ax.grid(True)
     
-    # --- 4. Spec F1 ---
     ax = axes[1, 1]
     ax.plot(epochs, history['val_f1_spec'], label='Val Spec F1', color='orange', marker='.')
     annotate_points(ax, epochs, history['val_f1_spec'], mode='max')
-    ax.set_title('Specific F1-Score')
+    ax.set_title('Specific F1 (Multimodal)')
     ax.set_ylim(0, 1)
     ax.legend()
     ax.grid(True)
 
-    # --- 5. Reg Loss ---
+    # --- 3. Reg (MM) ---
     ax = axes[2, 0]
-    ax.plot(epochs, history['train_reg'], label='Train Reg Loss', color='purple', alpha=0.6)
-    ax.plot(epochs, history['val_reg'], label='Val Reg Loss', color='pink', linestyle='--')
+    ax.plot(epochs, history['train_reg'], label='Train Reg', color='purple', alpha=0.6)
+    ax.plot(epochs, history['val_reg'], label='Val Reg', color='pink', linestyle='--')
     annotate_points(ax, epochs, history['val_reg'], mode='min')
-    ax.set_title('Region Loss')
-    ax.set_xlabel('Epochs')
+    ax.set_title('Region Loss (Multimodal)')
     ax.legend()
     ax.grid(True)
     
-    # --- 6. Reg F1 ---
     ax = axes[2, 1]
     ax.plot(epochs, history['val_f1_reg'], label='Val Reg F1', color='pink', marker='.')
     annotate_points(ax, epochs, history['val_f1_reg'], mode='max')
-    ax.set_title('Region F1-Score')
+    ax.set_title('Region F1 (Multimodal)')
+    ax.set_ylim(0, 1)
+    ax.legend()
+    ax.grid(True)
+    
+    # --- 4. Vision Only (重点新增！) ---
+    # 左边画 Spec (具体疾病) 的纯视觉 F1
+    ax = axes[3, 0]
+    ax.plot(epochs, history['val_f1_vis_spec'], label='Vis Only Spec F1', color='brown', marker='o')
+    annotate_points(ax, epochs, history['val_f1_vis_spec'], mode='max')
+    ax.set_title('Vision Only - Specific F1 (The Real "Reinforce" Metric)')
+    ax.set_ylim(0, 1)
+    ax.legend()
+    ax.grid(True)
+    
+    # 右边画 Reg (区域) 的纯视觉 F1
+    ax = axes[3, 1]
+    ax.plot(epochs, history['val_f1_vis_reg'], label='Vis Only Reg F1', color='brown', marker='o')
+    annotate_points(ax, epochs, history['val_f1_vis_reg'], mode='max')
+    ax.set_title('Vision Only - Region F1')
     ax.set_xlabel('Epochs')
     ax.set_ylim(0, 1)
     ax.legend()
@@ -161,12 +172,20 @@ def train_epoch(model, loader, criterion, optimizer, device):
 
 def eval_epoch(model, loader, criterion, device):
     model.eval()
-    total_loss = 0
-    total_spec = 0
-    total_reg = 0
     
-    preds_spec, labels_spec = [], []
-    preds_reg, labels_reg = [], []
+    # 累加 Loss
+    total_loss_mm = 0
+    total_spec_mm = 0
+    total_reg_mm = 0
+    
+    total_loss_vis = 0 # 视觉 Loss
+    
+    # 预测结果
+    preds_spec_mm, labels_spec = [], []
+    preds_reg_mm, labels_reg = [], []
+    
+    preds_spec_vis = []
+    preds_reg_vis = [] # 新增：用来存视觉分支对区域的预测
 
     with torch.no_grad():
         loop = tqdm(loader, desc="Validating", leave=False)
@@ -175,41 +194,64 @@ def eval_epoch(model, loader, criterion, device):
             lbl_spec = batch_lbl_spec.to(device)
             lbl_reg = batch_lbl_reg.to(device)
             
-            out_spec, out_reg = model(imgs, batch_txts)
+            # --- 1. 多模态 (MM) ---
+            out_spec_mm, out_reg_mm = model(imgs, batch_txts)
+            loss_spec_mm = criterion(out_spec_mm, lbl_spec)
+            loss_reg_mm = criterion(out_reg_mm, lbl_reg)
+            loss_mm = 2.0 * loss_spec_mm + loss_reg_mm
             
-            loss_spec = criterion(out_spec, lbl_spec)
-            loss_reg = criterion(out_reg, lbl_reg)
-            loss = 2.0 * loss_spec + loss_reg
-            
-            total_loss += loss.item()
-            total_spec += loss_spec.item()
-            total_reg += loss_reg.item()
+            total_loss_mm += loss_mm.item()
+            total_spec_mm += loss_spec_mm.item()
+            total_reg_mm += loss_reg_mm.item()
 
-            preds_spec.append((torch.sigmoid(out_spec) > 0.5).float().cpu().numpy())
-            labels_spec.append(lbl_spec.cpu().numpy())
+            preds_spec_mm.append((torch.sigmoid(out_spec_mm) > 0.5).float().cpu().numpy())
+            preds_reg_mm.append((torch.sigmoid(out_reg_mm) > 0.5).float().cpu().numpy())
             
-            preds_reg.append((torch.sigmoid(out_reg) > 0.5).float().cpu().numpy())
+            labels_spec.append(lbl_spec.cpu().numpy())
             labels_reg.append(lbl_reg.cpu().numpy())
+            
+            # --- 2. 纯视觉 (Vis) ---
+            empty_txts = [""] * len(batch_txts)
+            out_spec_vis, out_reg_vis = model(imgs, empty_txts)
+            
+            loss_spec_vis = criterion(out_spec_vis, lbl_spec)
+            loss_reg_vis = criterion(out_reg_vis, lbl_reg)
+            loss_vis = 2.0 * loss_spec_vis + loss_reg_vis # 这里的 Loss 实际上已经包含了 Reg
+            
+            total_loss_vis += loss_vis.item()
+
+            preds_spec_vis.append((torch.sigmoid(out_spec_vis) > 0.5).float().cpu().numpy())
+            preds_reg_vis.append((torch.sigmoid(out_reg_vis) > 0.5).float().cpu().numpy()) # 收集区域预测
 
     n = len(loader)
-    avg_loss = total_loss / n
-    avg_spec = total_spec / n
-    avg_reg = total_reg / n
     
-    P_spec = np.vstack(preds_spec)
+    avg_loss_mm = total_loss_mm / n
+    avg_spec_mm = total_spec_mm / n
+    avg_reg_mm = total_reg_mm / n
+    avg_loss_vis = total_loss_vis / n
+    
     L_spec = np.vstack(labels_spec)
-    P_reg = np.vstack(preds_reg)
     L_reg = np.vstack(labels_reg)
     
-    f1_s = f1_score(L_spec, P_spec, average='micro')
+    # MM Metrics
+    P_spec_mm = np.vstack(preds_spec_mm)
+    P_reg_mm = np.vstack(preds_reg_mm)
+    f1_s_mm = f1_score(L_spec, P_spec_mm, average='micro')
+    f1_r_mm = f1_score(L_reg, P_reg_mm, average='micro')
     
-    f1_r = f1_score(L_reg, P_reg, average='micro')
-    
-    P_total = np.hstack([P_spec, P_reg])
+    P_total_mm = np.hstack([P_spec_mm, P_reg_mm])
     L_total = np.hstack([L_spec, L_reg])
-    f1_t = f1_score(L_total, P_total, average='micro')
+    f1_t_mm = f1_score(L_total, P_total_mm, average='micro')
     
-    return avg_loss, avg_spec, avg_reg, f1_t, f1_s, f1_r
+    # Vis Metrics (新增 Reg)
+    P_spec_vis = np.vstack(preds_spec_vis)
+    P_reg_vis = np.vstack(preds_reg_vis) # 堆叠数组
+    
+    f1_s_vis = f1_score(L_spec, P_spec_vis, average='micro')
+    f1_r_vis = f1_score(L_reg, P_reg_vis, average='micro') # 计算视觉对区域的 F1
+    
+    # 返回 8 个值
+    return avg_loss_mm, avg_spec_mm, avg_reg_mm, f1_t_mm, f1_s_mm, f1_r_mm, f1_s_vis, f1_r_vis
 
 def main():
     os.makedirs(SAVE_DIR, exist_ok=True)
@@ -263,7 +305,7 @@ def main():
             trainable_layers += 1
         else:
             frozen_layers += 1
-            
+
     #optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE)
 
     optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=LEARNING_RATE)
@@ -277,7 +319,8 @@ def main():
     history = {
         'train_loss': [], 'val_loss': [], 'val_f1_total': [],
         'train_spec': [], 'val_spec': [], 'val_f1_spec': [],
-        'train_reg': [],  'val_reg': [],  'val_f1_reg': []
+        'train_reg': [],  'val_reg': [],  'val_f1_reg': [],
+        'val_f1_vis_spec': [], 'val_f1_vis_reg': []
     }
     
     for epoch in range(NUM_EPOCHS):
@@ -285,11 +328,13 @@ def main():
 
         t_loss, t_spec, t_reg = train_epoch(model, train_loader, criterion, optimizer, DEVICE)
         
-        v_loss, v_spec, v_reg, v_f1_t, v_f1_s, v_f1_r = eval_epoch(model, val_loader, criterion, DEVICE)    
+        v_loss, v_spec, v_reg, v_f1_t, v_f1_s, v_f1_r, v_f1_s_vis, v_f1_r_vis = eval_epoch(model, val_loader, criterion, DEVICE)    
         
-        print(f"Total | Loss: {t_loss:.4f}(T) / {v_loss:.4f}(V) | F1: {v_f1_t:.4f}")
-        print(f"Spec  | Loss: {t_spec:.4f}(T) / {v_spec:.4f}(V) | F1: {v_f1_s:.4f}")
-        print(f"Reg   | Loss: {t_reg:.4f}(T) / {v_reg:.4f}(V) | F1: {v_f1_r:.4f}")
+        print(f"Total(MM) | Loss: {t_loss:.4f}(T) / {v_loss:.4f}(V) | F1: {v_f1_t:.4f}")
+        print(f"Spec (MM) | Loss: {t_spec:.4f}(T) / {v_spec:.4f}(V) | F1: {v_f1_s:.4f}")
+        print(f"Reg  (MM) | Loss: {t_reg:.4f}(T) / {v_reg:.4f}(V) | F1: {v_f1_r:.4f}")
+        print(f"Spec (Vis)| F1: {v_f1_s_vis:.4f}")
+        print(f"Reg  (Vis)| F1: {v_f1_r_vis:.4f}")
         
         history['train_loss'].append(t_loss)
         history['val_loss'].append(v_loss)
@@ -302,6 +347,9 @@ def main():
         history['train_reg'].append(t_reg)
         history['val_reg'].append(v_reg)
         history['val_f1_reg'].append(v_f1_r)
+
+        history['val_f1_vis_spec'].append(v_f1_s_vis)
+        history['val_f1_vis_reg'].append(v_f1_r_vis)
         
         plot_analysis(history, plot_path)
 
@@ -321,11 +369,13 @@ def main():
                 break
 
     print("\n===============test===============")
-    model.load_state_dict(torch.load(best_model_path))
-    t_loss, t_spec, t_reg, t_f1_t, t_f1_s, t_f1_r = eval_epoch(model, test_loader, criterion, DEVICE)
-    print(f"Total | Loss: {t_loss:.4f} | F1: {t_f1_t:.4f}")
-    print(f"Spec  | Loss: {t_spec:.4f} | F1: {t_f1_s:.4f}")
-    print(f"Reg   | Loss: {t_reg:.4f} | F1: {t_f1_r:.4f}")
+    v_loss, v_spec, v_reg, v_f1_t, v_f1_s, v_f1_r, v_f1_s_vis, v_f1_r_vis = eval_epoch(model, test_loader, criterion, DEVICE)    
+        
+    print(f"Total(MM) | Loss: {t_loss:.4f}(T) / {v_loss:.4f}(V) | F1: {v_f1_t:.4f}")
+    print(f"Spec (MM) | Loss: {t_spec:.4f}(T) / {v_spec:.4f}(V) | F1: {v_f1_s:.4f}")
+    print(f"Reg  (MM) | Loss: {t_reg:.4f}(T) / {v_reg:.4f}(V) | F1: {v_f1_r:.4f}")
+    print(f"Spec (Vis)| F1: {v_f1_s_vis:.4f}")
+    print(f"Reg  (Vis)| F1: {v_f1_r_vis:.4f}")
 
 if __name__ == "__main__":
     main()
