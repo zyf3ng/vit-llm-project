@@ -21,12 +21,13 @@ LEARNING_RATE = 5e-5
 NUM_EPOCHS = 100
 PATIENCE = 10
 NUM_WORKERS = 4
+alpha = 1.0
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORT_CSV = os.path.join(CURRENT_DIR, '..', 'archive', 'indiana_reports.csv')
 LABEL_CSV = os.path.join(CURRENT_DIR, '..', 'dataset_with_labels_2.csv')
 IMG_DIR = os.path.join(CURRENT_DIR, '..', 'archive', 'images', 'images_normalized')
-SAVE_DIR = os.path.join(CURRENT_DIR, '..', 'model_loss_21')
+SAVE_DIR = os.path.join(CURRENT_DIR, '..', 'model_loss_11')
 
 def plot_analysis(history, save_path):
     # 这里的 epochs 依然是 X 轴
@@ -145,17 +146,17 @@ def train_epoch(model, loader, criterion, optimizer, device):
         
         loss_spec_mm = criterion(out_spec_mm, lbl_spec)
         loss_reg_mm = criterion(out_reg_mm, lbl_reg)
-        loss_mm = 2.0 * loss_spec_mm + loss_reg_mm
+        loss_mm = alpha * loss_spec_mm + loss_reg_mm
         
         empty_txts = [""] * len(batch_txts) 
         out_spec_vis, out_reg_vis = model(imgs, empty_txts)
         
         loss_spec_vis = criterion(out_spec_vis, lbl_spec)
         loss_reg_vis = criterion(out_reg_vis, lbl_reg)
-        loss_vis = 2.0 * loss_spec_vis + loss_reg_vis
+        loss_vis = alpha * loss_spec_vis + loss_reg_vis
         
-        alpha = 0.1
-        loss = loss_mm + alpha * loss_vis
+        lam = 0.1
+        loss = loss_mm + lam * loss_vis
         
         optimizer.zero_grad()
         loss.backward()
@@ -198,7 +199,7 @@ def eval_epoch(model, loader, criterion, device):
             out_spec_mm, out_reg_mm = model(imgs, batch_txts)
             loss_spec_mm = criterion(out_spec_mm, lbl_spec)
             loss_reg_mm = criterion(out_reg_mm, lbl_reg)
-            loss_mm = 2.0 * loss_spec_mm + loss_reg_mm
+            loss_mm = alpha * loss_spec_mm + loss_reg_mm
             
             total_loss_mm += loss_mm.item()
             total_spec_mm += loss_spec_mm.item()
@@ -216,7 +217,7 @@ def eval_epoch(model, loader, criterion, device):
             
             loss_spec_vis = criterion(out_spec_vis, lbl_spec)
             loss_reg_vis = criterion(out_reg_vis, lbl_reg)
-            loss_vis = 2.0 * loss_spec_vis + loss_reg_vis # 这里的 Loss 实际上已经包含了 Reg
+            loss_vis = alpha * loss_spec_vis + loss_reg_vis # 这里的 Loss 实际上已经包含了 Reg
             
             total_loss_vis += loss_vis.item()
 
@@ -228,7 +229,6 @@ def eval_epoch(model, loader, criterion, device):
     avg_loss_mm = total_loss_mm / n
     avg_spec_mm = total_spec_mm / n
     avg_reg_mm = total_reg_mm / n
-    avg_loss_vis = total_loss_vis / n
     
     L_spec = np.vstack(labels_spec)
     L_reg = np.vstack(labels_reg)
