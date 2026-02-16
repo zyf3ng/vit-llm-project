@@ -250,7 +250,23 @@ def main():
     
     model = MultiModalNet().to(DEVICE)
     criterion = nn.BCEWithLogitsLoss()
-    optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE)
+
+    frozen_layers = 0
+    trainable_layers = 0
+    for name, param in model.image_encoder.named_parameters():
+    # 1. 默认先锁死所有
+        param.requires_grad = False
+    
+    # 2. 如果是最后两层 (layer.10, layer.11) 或者是 Norm 层，就解开
+        if "layer.10" in name or "layer.11" in name or "layernorm" in name or "pooler" in name:
+            param.requires_grad = True
+            trainable_layers += 1
+        else:
+            frozen_layers += 1
+            
+    #optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE)
+
+    optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=LEARNING_RATE)
     
     best_val_spec_f1 = 0.0
     best_val_loss = float('inf')
