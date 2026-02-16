@@ -311,9 +311,11 @@ def main():
     optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=LEARNING_RATE)
     
     best_val_spec_f1 = 0.0
+    best_val_vis_f1 = 0.0
     best_val_loss = float('inf')
     patience_counter = 0
     best_model_path = os.path.join(SAVE_DIR, "best_model.pth")
+    vis_save_path = os.path.join(SAVE_DIR, "best_vis_model.pth")
     plot_path = os.path.join(SAVE_DIR, "plot_analysis.png")
 
     history = {
@@ -356,7 +358,12 @@ def main():
         if v_f1_s > best_val_spec_f1:
             best_val_spec_f1 = v_f1_s
             torch.save(model.state_dict(), best_model_path)
-            print(f"验证集表现提升，已保存最佳模型!")
+            print(f"验证集表现提升(MM)，已保存最佳模型!")
+
+        if v_f1_s_vis > best_val_vis_f1:
+            best_val_vis_f1 = v_f1_s_vis
+            torch.save(model.state_dict(), vis_save_path)
+            print(f"视觉分支表现提升，已单独保存Visual模型!")
 
         if v_loss < best_val_loss:
             best_val_loss = v_loss
