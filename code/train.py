@@ -2,13 +2,11 @@ import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.utils.data import DataLoader, random_split
+from torch.utils.data import DataLoader, random_split, Subset
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import f1_score
-from torch.utils.data import Subset
-import random
 
 from dataset import ChestXrayDataset
 from model import MultiModalNet
@@ -30,13 +28,10 @@ IMG_DIR = os.path.join(CURRENT_DIR, '..', 'archive', 'images', 'images_normalize
 SAVE_DIR = os.path.join(CURRENT_DIR, '..', 'model_loss_11')
 
 def plot_analysis(history, save_path):
-    # 这里的 epochs 依然是 X 轴
     epochs = list(range(1, len(history['train_loss']) + 1))
     
-    # 改动1：把画布变高，变成 4 行 2 列 (figsize=(15, 16))
     fig, axes = plt.subplots(4, 2, figsize=(15, 16))
     
-    # 辅助函数 (保持不变)
     def annotate_points(ax, x, y, mode='max', color='red'):
         if len(y) == 0: return # 防止空数据报错
         y = np.array(y)
@@ -173,20 +168,17 @@ def train_epoch(model, loader, criterion, optimizer, device):
 
 def eval_epoch(model, loader, criterion, device):
     model.eval()
-    
-    # 累加 Loss
     total_loss_mm = 0
     total_spec_mm = 0
     total_reg_mm = 0
-    
-    total_loss_vis = 0 # 视觉 Loss
+    total_loss_vis = 0
     
     # 预测结果
     preds_spec_mm, labels_spec = [], []
     preds_reg_mm, labels_reg = [], []
     
     preds_spec_vis = []
-    preds_reg_vis = [] # 新增：用来存视觉分支对区域的预测
+    preds_reg_vis = []
 
     with torch.no_grad():
         loop = tqdm(loader, desc="Validating", leave=False)
@@ -281,9 +273,7 @@ def main():
     )
 
     train_dataset = train_sub 
-    
     val_dataset = Subset(val_ds_full, val_sub.indices)
-    
     test_dataset = Subset(val_ds_full, test_sub.indices)
 
     train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=NUM_WORKERS)
@@ -374,7 +364,7 @@ def main():
                 print(f"\n触发早停，训练结束。")
                 break
 
-    print("\n===============test===============")
+    print("\n===============Test===============")
     v_loss, v_spec, v_reg, v_f1_t, v_f1_s, v_f1_r, v_f1_s_vis, v_f1_r_vis = eval_epoch(model, test_loader, criterion, DEVICE)    
         
     print(f"Total(MM) | Loss: {t_loss:.4f}(T) / {v_loss:.4f}(V) | F1: {v_f1_t:.4f}")
