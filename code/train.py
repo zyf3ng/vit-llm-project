@@ -20,6 +20,7 @@ NUM_EPOCHS = 100
 PATIENCE = 20
 NUM_WORKERS = 4
 alpha = 1.0
+lam = 1.0
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORT_CSV = os.path.join(CURRENT_DIR, '..', 'archive', 'indiana_reports.csv')
@@ -150,7 +151,6 @@ def train_epoch(model, loader, criterion, optimizer, device):
         loss_reg_vis = criterion(out_reg_vis, lbl_reg)
         loss_vis = alpha * loss_spec_vis + loss_reg_vis
         
-        lam = 1.0
         loss = loss_mm + lam * loss_vis
         
         optimizer.zero_grad()
@@ -209,7 +209,7 @@ def eval_epoch(model, loader, criterion, device):
             
             loss_spec_vis = criterion(out_spec_vis, lbl_spec)
             loss_reg_vis = criterion(out_reg_vis, lbl_reg)
-            loss_vis = alpha * loss_spec_vis + loss_reg_vis # 这里的 Loss 实际上已经包含了 Reg
+            loss_vis = alpha * loss_spec_vis + loss_reg_vis 
             
             total_loss_vis += loss_vis.item()
 
@@ -365,13 +365,14 @@ def main():
                 break
 
     print("\n===============Test===============")
-    v_loss, v_spec, v_reg, v_f1_t, v_f1_s, v_f1_r, v_f1_s_vis, v_f1_r_vis = eval_epoch(model, test_loader, criterion, DEVICE)    
+    model.load_state_dict(torch.load(best_model_path))
+    t_loss, t_spec, t_reg, t_f1_t, t_f1_s, t_f1_r, t_f1_s_vis, t_f1_r_vis = eval_epoch(model, test_loader, criterion, DEVICE)    
         
-    print(f"Total(MM) | Loss: {t_loss:.4f}(T) / {v_loss:.4f}(V) | F1: {v_f1_t:.4f}")
-    print(f"Spec (MM) | Loss: {t_spec:.4f}(T) / {v_spec:.4f}(V) | F1: {v_f1_s:.4f}")
-    print(f"Reg  (MM) | Loss: {t_reg:.4f}(T) / {v_reg:.4f}(V) | F1: {v_f1_r:.4f}")
-    print(f"Spec (Vis)| F1: {v_f1_s_vis:.4f}")
-    print(f"Reg  (Vis)| F1: {v_f1_r_vis:.4f}")
+    print(f"Total(MM) | Loss: {t_loss:.4f} | F1: {t_f1_t:.4f}")
+    print(f"Spec (MM) | Loss: {t_spec:.4f} | F1: {t_f1_s:.4f}")
+    print(f"Reg  (MM) | Loss: {t_reg:.4f}  | F1: {t_f1_r:.4f}")
+    print(f"Spec (Vis)| F1: {t_f1_s_vis:.4f}")
+    print(f"Reg  (Vis)| F1: {t_f1_r_vis:.4f}")
 
 if __name__ == "__main__":
     main()
