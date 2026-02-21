@@ -101,12 +101,12 @@ def plot_analysis(history, save_path):
     ax.legend()
     ax.grid(True)
     
-    # --- 4. Vision Only (重点新增！) ---
+    # --- 4. Vision Only ---
     # 左边画 Spec (具体疾病) 的纯视觉 F1
     ax = axes[3, 0]
     ax.plot(epochs, history['val_f1_vis_spec'], label='Vis Only Spec F1', color='brown', marker='o')
     annotate_points(ax, epochs, history['val_f1_vis_spec'], mode='max')
-    ax.set_title('Vision Only - Specific F1 (The Real "Reinforce" Metric)')
+    ax.set_title('Vision Only - Specific F1')
     ax.set_ylim(0, 1)
     ax.legend()
     ax.grid(True)
@@ -173,7 +173,6 @@ def eval_epoch(model, loader, criterion, device):
     total_reg_mm = 0
     total_loss_vis = 0
     
-    # 预测结果
     preds_spec_mm, labels_spec = [], []
     preds_reg_mm, labels_reg = [], []
     
@@ -214,7 +213,7 @@ def eval_epoch(model, loader, criterion, device):
             total_loss_vis += loss_vis.item()
 
             preds_spec_vis.append((torch.sigmoid(out_spec_vis) > 0.5).float().cpu().numpy())
-            preds_reg_vis.append((torch.sigmoid(out_reg_vis) > 0.5).float().cpu().numpy()) # 收集区域预测
+            preds_reg_vis.append((torch.sigmoid(out_reg_vis) > 0.5).float().cpu().numpy())
 
     n = len(loader)
     
@@ -235,12 +234,12 @@ def eval_epoch(model, loader, criterion, device):
     L_total = np.hstack([L_spec, L_reg])
     f1_t_mm = f1_score(L_total, P_total_mm, average='micro')
     
-    # Vis Metrics (新增 Reg)
+    # Vis Metrics
     P_spec_vis = np.vstack(preds_spec_vis)
-    P_reg_vis = np.vstack(preds_reg_vis) # 堆叠数组
+    P_reg_vis = np.vstack(preds_reg_vis)
     
     f1_s_vis = f1_score(L_spec, P_spec_vis, average='micro')
-    f1_r_vis = f1_score(L_reg, P_reg_vis, average='micro') # 计算视觉对区域的 F1
+    f1_r_vis = f1_score(L_reg, P_reg_vis, average='micro')
     
     # 返回 8 个值
     return avg_loss_mm, avg_spec_mm, avg_reg_mm, f1_t_mm, f1_s_mm, f1_r_mm, f1_s_vis, f1_r_vis
@@ -348,11 +347,6 @@ def main():
             best_val_spec_f1 = v_f1_s
             torch.save(model.state_dict(), best_model_path)
             print(f"验证集表现提升(MM)，已保存最佳模型!")
-
-        if v_f1_s_vis > best_val_vis_f1:
-            best_val_vis_f1 = v_f1_s_vis
-            torch.save(model.state_dict(), vis_save_path)
-            print(f"视觉分支表现提升，已单独保存Visual模型!")
 
         if v_loss < best_val_loss:
             best_val_loss = v_loss
