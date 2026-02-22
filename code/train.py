@@ -7,11 +7,22 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import f1_score
+import random
 
 from dataset import ChestXrayDataset
 from model import MultiModalNet
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+def seed_everything(seed=37):
+    random.seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 BATCH_SIZE = 16
@@ -246,7 +257,8 @@ def eval_epoch(model, loader, criterion, device):
 
 def main():
     os.makedirs(SAVE_DIR, exist_ok=True)
-        
+    seed_everything(37)
+
     print(f"使用设备: {DEVICE}")
     
     train_ds_full = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR, split='train')
@@ -299,11 +311,9 @@ def main():
     optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=LEARNING_RATE)
     
     best_val_spec_f1 = 0.0
-    best_val_vis_f1 = 0.0
     best_val_loss = float('inf')
     patience_counter = 0
     best_model_path = os.path.join(SAVE_DIR, "best_model.pth")
-    vis_save_path = os.path.join(SAVE_DIR, "best_vis_model.pth")
     plot_path = os.path.join(SAVE_DIR, "plot_analysis.png")
 
     history = {
