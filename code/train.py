@@ -7,22 +7,11 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import f1_score
-import random
 
 from dataset import ChestXrayDataset
 from model import MultiModalNet
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-
-def seed_everything(seed=37):
-    random.seed(seed)
-    os.environ['PYTHONHASHSEED'] = str(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark = False
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 BATCH_SIZE = 16
@@ -257,7 +246,6 @@ def eval_epoch(model, loader, criterion, device):
 
 def main():
     os.makedirs(SAVE_DIR, exist_ok=True)
-    seed_everything(37)
 
     print(f"使用设备: {DEVICE}")
     
@@ -275,7 +263,7 @@ def main():
     print(f"验证集: {val_size} 张")
     print(f"测试集: {test_size} 张")
     
-    generator = torch.Generator().manual_seed(37)
+    generator = torch.Generator().manual_seed(2026)
     
     train_sub, val_sub, test_sub = random_split(
         train_ds_full, 
