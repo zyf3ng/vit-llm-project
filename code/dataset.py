@@ -90,7 +90,12 @@ class ChestXrayDataset(Dataset):
 
             # 程度副词
             r"mild", r"moderate", r"severe", r"acute", r"chronic", r"small", r"large",
-            r"bilateral", r"left", r"right", r"upper", r"lower"
+            r"bilateral", r"left", r"right", r"upper", r"lower",
+
+            r"lung", r"lobe", r"apex", r"base", r"hilum", r"hilar",
+            r"spine", r"rib", r"clavicle", r"thoracic", r"vertebral",
+            r"heart", r"cardiomediastinal", r"silhouette", 
+            r"pleural", r"space", r"costophrenic", r"angle"
         ]
 
         normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])

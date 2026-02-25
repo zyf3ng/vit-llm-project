@@ -263,7 +263,7 @@ def main():
     print(f"验证集: {val_size} 张")
     print(f"测试集: {test_size} 张")
     
-    generator = torch.Generator().manual_seed(2026)
+    generator = torch.Generator().manual_seed(42)
     
     train_sub, val_sub, test_sub = random_split(
         train_ds_full, 
@@ -294,11 +294,9 @@ def main():
         else:
             frozen_layers += 1
 
-    #optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE)
-
     optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=LEARNING_RATE)
     
-    best_val_spec_f1 = 0.0
+    best_combined_score = 0.0
     best_val_loss = float('inf')
     patience_counter = 0
     best_model_path = os.path.join(SAVE_DIR, "best_model.pth")
@@ -341,17 +339,20 @@ def main():
         
         plot_analysis(history, plot_path)
 
-        if v_f1_s > best_val_spec_f1:
-            best_val_spec_f1 = v_f1_s
+        combined_score = 0.6 * v_f1_s + 0.4 * v_f1_s_vis
+        
+        if combined_score > best_combined_score:
+            best_combined_score = combined_score
             torch.save(model.state_dict(), best_model_path)
-            print(f"验证集表现提升(MM)，已保存最佳模型!")
-
+            print(f"验证集表现提升，综合得分: {combined_score:.4f}，已保存最佳模型!")
+            
+        # --- 2. 早停逻辑 (只看 Val Loss) ---
         if v_loss < best_val_loss:
             best_val_loss = v_loss
-            patience_counter = 0
+            patience_counter = 0  # Loss 降了，正常训练
         else:
             patience_counter += 1
-            print(f"loss未下降 ({patience_counter}/{PATIENCE})")
+            print(f"Loss 未下降 ({patience_counter}/{PATIENCE})")
             if patience_counter >= PATIENCE:
                 print(f"\n触发早停，训练结束。")
                 break
