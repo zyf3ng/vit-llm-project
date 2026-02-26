@@ -263,7 +263,7 @@ def main():
     print(f"验证集: {val_size} 张")
     print(f"测试集: {test_size} 张")
     
-    generator = torch.Generator().manual_seed(42)
+    generator = torch.Generator().manual_seed(37)
     
     train_sub, val_sub, test_sub = random_split(
         train_ds_full, 
