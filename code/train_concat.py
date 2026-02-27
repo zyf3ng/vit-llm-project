@@ -312,10 +312,10 @@ def main():
     print("\n===============Test===============")
     model.load_state_dict(torch.load(best_model_path))
     t_loss, t_spec, t_reg, t_f1_t, t_f1_s, t_f1_r, t_f1_s_vis, t_f1_r_vis = eval_epoch(model, test_loader, criterion, DEVICE)    
-    
-    print(f"Total(MM) | Loss: {t_loss:.4f} | F1: {t_f1_t:.4f}")
-    print(f"Spec (MM) | Loss: {t_spec:.4f} | F1: {t_f1_s:.4f}")
-    print(f"Reg  (MM) | Loss: {t_reg:.4f}  | F1: {t_f1_r:.4f}")
+
+    print(f"Total(MM) | F1: {t_f1_t:.4f}")
+    print(f"Spec (MM) | F1: {t_f1_s:.4f}")
+    print(f"Reg  (MM) | F1: {t_f1_r:.4f}")
     print(f"Spec (Vis)| F1: {t_f1_s_vis:.4f}")
     print(f"Reg  (Vis)| F1: {t_f1_r_vis:.4f}")
 

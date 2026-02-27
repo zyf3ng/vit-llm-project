@@ -16,27 +16,36 @@ class MultiModalNet_NoRegion(nn.Module):
             dropout = dropout, 
             batch_first = True
         )
-        
+
         self.ln = nn.LayerNorm(d_model)
-        
+
         self.dropout = nn.Dropout(dropout)
 
         self.classifier_specific = nn.Linear(d_model, num_specific)
         
-    def forward(self, images, text_list):
+    def forward(self, images, text_list=None):
         img_feats = self.image_encoder(images)
         
-        txt_feats, txt_mask = self.text_encoder(text_list)
-        
-        padding_mask = (txt_mask == 0).bool()
-        
-        attn_output, _ = self.cross_attention(
-            query = img_feats,
-            key = txt_feats,
-            value = txt_feats,
-            key_padding_mask = padding_mask
-        )
-        
+        # --- 核心对齐：纯视觉特判逻辑 ---
+        is_pure_vision = False
+        if text_list is None:
+            is_pure_vision = True
+        elif isinstance(text_list, list) and all(t == "" for t in text_list):
+            is_pure_vision = True
+            
+        if is_pure_vision:
+            # 剥夺文本时，Cross-Attention 输出强行清零
+            attn_output = torch.zeros_like(img_feats)
+        else:
+            txt_feats, txt_mask = self.text_encoder(text_list)
+            padding_mask = (txt_mask == 0).bool()
+            attn_output, _ = self.cross_attention(
+                query = img_feats,
+                key = txt_feats,
+                value = txt_feats,
+                key_padding_mask = padding_mask
+            )
+            
         fused_feats = self.ln(img_feats + attn_output)
         
         cls_feat = fused_feats[:, 0, :]
@@ -46,19 +55,18 @@ class MultiModalNet_NoRegion(nn.Module):
 
         return logits_specific
     
-
 if __name__ == "__main__":
     model = MultiModalNet_NoRegion()
-    
+
     dummy_img = torch.randn(2, 3, 224, 224)
     dummy_txt = ["Lung opacity found.", "No findings."]
-    
+
     try:
         out_spec = model(dummy_img, dummy_txt)
-        
+        out_spec_vis = model(dummy_img, ["", ""])
         print(f"输入图片: {dummy_img.shape}")
-        print(f"输出结果: {out_spec.shape}")
-        
+        print(f"多模态输出结果: {out_spec.shape}")
+        print(f"纯视觉输出结果: {out_spec_vis.shape}")
         if out_spec.shape == (2, 30):
             print("单任务模型测试通过！")
         else:
