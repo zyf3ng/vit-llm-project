@@ -14,7 +14,7 @@ from dataset import ChestXrayDataset
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-MODEL_PATH = os.path.join(CURRENT_DIR, '..', 'model_loss_11', 'best_model.pth')
+MODEL_PATH = os.path.join(CURRENT_DIR, '..', 'model_loss_21_15', 'best_model.pth')
 REPORT_CSV = os.path.join(CURRENT_DIR, '..', 'archive', 'indiana_reports.csv')
 LABEL_CSV = os.path.join(CURRENT_DIR, '..', 'dataset_with_labels_2.csv')
 IMG_DIR = os.path.join(CURRENT_DIR, '..', 'archive', 'images', 'images_normalized')
@@ -31,9 +31,10 @@ class ModelWrapper(torch.nn.Module):
     def __init__(self, model):
         super().__init__()
         self.model = model
+        self.text = None
     
-    def forward(self, x, text_list=None):
-        out_spec, _ = self.model(x, text_list=text_list)
+    def forward(self, x):
+        out_spec, _ = self.model(x, text_list=self.text)
         return out_spec
 
 def main():
@@ -45,7 +46,7 @@ def main():
         return
     target_idx = target_idx[0]
 
-    image_tensor, clean_text, label_specific, label_region, view_label = dataset[target_idx]
+    image_tensor, clean_text, label_specific, label_region = dataset[target_idx]
 
     original_model = MultiModalNet().to(DEVICE)
     original_model.load_state_dict(torch.load(MODEL_PATH, map_location=DEVICE))
@@ -55,10 +56,12 @@ def main():
     target_layers = [original_model.image_encoder.model.encoder.layer[-1].layernorm_before]
 
     input_tensor = image_tensor.unsqueeze(0).to(DEVICE)
-    text_input = [clean_text] 
+    text_input = [clean_text]
+
+    model.text = text_input
 
     with torch.no_grad():
-        logits = model(input_tensor, text_list=text_input)
+        logits = model(input_tensor)
         probs = torch.sigmoid(logits).squeeze().cpu().numpy()
 
     true_indices = np.where(label_specific.numpy() == 1.0)[0].tolist()
@@ -86,7 +89,7 @@ def main():
 
     targets = [ClassifierOutputTarget(idx) for idx in pred_indices]
     
-    grayscale_cam = cam(input_tensor=input_tensor, targets=targets, text_list=text_input)
+    grayscale_cam = cam(input_tensor=input_tensor, targets=targets)
     grayscale_cam = grayscale_cam[0, :]
     
     visualization = show_cam_on_image(img_float, grayscale_cam, use_rgb=True)
