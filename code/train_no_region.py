@@ -178,7 +178,7 @@ def main():
     best_val_loss = float('inf')
     patience_counter = 0
     best_model_path = os.path.join(SAVE_DIR, "best_model.pth")
-    plot_path = os.path.join(SAVE_DIR, "plot_analysis_noregion.png")
+    plot_path = os.path.join(SAVE_DIR, "plot_analysis.png")
     
     history = {'train_loss': [], 'val_loss': [], 'val_f1_spec_mm': [], 'val_f1_spec_vis': []}
     
@@ -189,7 +189,8 @@ def main():
         v_loss, v_f1_mm, v_f1_vis = eval_epoch(model, val_loader, criterion, DEVICE)    
         
         print(f"Loss | Train: {t_loss:.4f} | Val: {v_loss:.4f}")
-        print(f"Spec | MM F1: {v_f1_mm:.4f} | Vis F1: {v_f1_vis:.4f}")
+        print(f"Spec | MM F1: {v_f1_mm:.4f}")
+        print(f"Spec | Vis F1: {v_f1_vis:.4f}")
         
         history['train_loss'].append(t_loss)
         history['val_loss'].append(v_loss)
