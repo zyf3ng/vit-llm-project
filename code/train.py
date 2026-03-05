@@ -142,26 +142,72 @@ def train_epoch(model, loader, criterion, optimizer, device):
         
         loss_spec_mm = criterion(out_spec_mm, lbl_spec)
         loss_reg_mm = criterion(out_reg_mm, lbl_reg)
-        loss_mm = alpha * loss_spec_mm + loss_reg_mm
+        #loss_mm = alpha * loss_spec_mm + loss_reg_mm
         
         empty_txts = [""] * len(batch_txts) 
         out_spec_vis, out_reg_vis = model(imgs, empty_txts)
         
         loss_spec_vis = criterion(out_spec_vis, lbl_spec)
         loss_reg_vis = criterion(out_reg_vis, lbl_reg)
-        loss_vis = alpha * loss_spec_vis + loss_reg_vis
+        #loss_vis = alpha * loss_spec_vis + loss_reg_vis
         
-        loss = loss_mm + lam * loss_vis
+        # 将属于 Spec 的 Loss 打包 (主线任务)
+        loss_spec_total = alpha * loss_spec_mm + lam * alpha * loss_spec_vis
+        # 将属于 Reg 的 Loss 打包 (辅助任务)
+        loss_reg_total = loss_reg_mm + lam * loss_reg_vis
         
         optimizer.zero_grad()
-        loss.backward()
+        
+        # --- 2. 主任务 (Spec) 先反向传播 ---
+        # retain_graph=True 是为了让后面还能继续反向传播
+        loss_spec_total.backward(retain_graph=True)
+        
+        # 把主任务的绝对权威梯度“抄下来”并暂存
+        grad_spec = []
+        for p in model.parameters():
+            if p.grad is not None:
+                grad_spec.append(p.grad.clone())
+                p.grad.zero_()  # 暂存后清零，给 Reg 腾出计算空间
+            else:
+                grad_spec.append(None)
+                
+        # --- 3. 辅助任务 (Reg) 反向传播 ---
+        loss_reg_total.backward()
+        
+        # --- 4. 【核心黑科技：PCGrad 梯度外科手术】 ---
+        for i, p in enumerate(model.parameters()):
+            if p.grad is not None and grad_spec[i] is not None:
+                g_s = grad_spec[i]  # 找病的梯度 (神圣不可侵犯)
+                g_r = p.grad        # 找位置的梯度
+                
+                # 计算两个梯度向量的内积 (点乘)
+                dot = torch.dot(g_s.flatten(), g_r.flatten())
+                
+                if dot < 0:
+                    # 【发生负迁移！】夹角大于90度，方向冲突
+                    # 把 g_r 强行投影到 g_s 的法平面上，切掉反骨部分
+                    g_s_norm_sq = torch.sum(g_s**2) + 1e-8
+                    g_r_proj = g_r.flatten() - (dot / g_s_norm_sq) * g_s.flatten()
+                    
+                    # 最终的梯度 = 原汁原味的 Spec + 阉割后的 Reg
+                    p.grad = g_s + g_r_proj.view_as(p)
+                else:
+                    # 【目标一致！】直接相加，互相促进
+                    p.grad = g_s + g_r
+            elif grad_spec[i] is not None:
+                # 只有 Spec 产生了梯度的情况
+                p.grad = grad_spec[i]
+                
+        # --- 5. 手术完成，步进更新参数 ---
         optimizer.step()
         
-        total_loss += loss.item()
+        # 记录日志
+        current_loss = loss_spec_total.item() + loss_reg_total.item()
+        total_loss += current_loss
         total_spec += loss_spec_mm.item()
         total_reg += loss_reg_mm.item()
         
-        loop.set_postfix(loss=loss.item())
+        loop.set_postfix(loss=current_loss)
     
     n = len(loader)   
     return total_loss/n, total_spec/n, total_reg/n

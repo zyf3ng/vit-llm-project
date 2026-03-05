@@ -18,25 +18,12 @@ class MultiModalNet(nn.Module):
         )
         
         self.ln = nn.LayerNorm(d_model)
+
         self.dropout = nn.Dropout(dropout)
 
-        hidden_dim = d_model // 2
-
-        self.spec_neck = nn.Sequential(
-            nn.Linear(d_model, hidden_dim),
-            nn.BatchNorm1d(hidden_dim),
-            nn.ReLU(),
-            nn.Dropout(dropout)
-        )
-        self.classifier_specific = nn.Linear(hidden_dim, num_specific)
-
-        self.reg_neck = nn.Sequential(
-            nn.Linear(d_model, hidden_dim),
-            nn.BatchNorm1d(hidden_dim),
-            nn.ReLU(),
-            nn.Dropout(dropout)
-        )
-        self.classifier_region = nn.Linear(hidden_dim, num_region)
+        self.classifier_specific = nn.Linear(d_model, num_specific)
+        
+        self.classifier_region = nn.Linear(d_model, num_region)
         
     def forward(self, images, text_list=None):
         img_feats = self.image_encoder(images)
@@ -67,11 +54,8 @@ class MultiModalNet(nn.Module):
         cls_feat = fused_feats[:, 0, :]
         cls_feat = self.dropout(cls_feat)
         
-        spec_feat = self.spec_neck(cls_feat)
-        logits_specific = self.classifier_specific(spec_feat)
-        
-        reg_feat = self.reg_neck(cls_feat)
-        logits_region = self.classifier_region(reg_feat)
+        logits_specific = self.classifier_specific(cls_feat)
+        logits_region = self.classifier_region(cls_feat)
         
         return logits_specific, logits_region
     
