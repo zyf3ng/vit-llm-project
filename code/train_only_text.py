@@ -2,7 +2,8 @@ import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.utils.data import DataLoader, random_split
+# 【修复点】：加入了 Subset，保证和主模型数据切分一模一样
+from torch.utils.data import DataLoader, random_split, Subset
 from tqdm import tqdm
 import numpy as np
 from sklearn.metrics import f1_score
@@ -18,6 +19,7 @@ LEARNING_RATE = 5e-3
 NUM_EPOCHS = 100 
 PATIENCE = 10
 NUM_WORKERS = 4
+alpha = 2.0 
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORT_CSV = os.path.join(CURRENT_DIR, '..', 'archive', 'indiana_reports.csv')
@@ -41,7 +43,7 @@ def train_epoch(model, loader, criterion, optimizer, device):
         
         loss_spec = criterion(out_spec, lbl_spec)
         loss_reg = criterion(out_reg, lbl_reg)
-        loss = 2.0 * loss_spec + loss_reg
+        loss = alpha * loss_spec + loss_reg
         
         optimizer.zero_grad()
         loss.backward()
@@ -74,7 +76,7 @@ def eval_epoch(model, loader, criterion, device):
             
             loss_spec = criterion(out_spec, lbl_spec)
             loss_reg = criterion(out_reg, lbl_reg)
-            loss = 2.0 * loss_spec + loss_reg
+            loss = alpha * loss_spec + loss_reg
             
             total_loss += loss.item()
             total_spec += loss_spec.item()
@@ -111,8 +113,10 @@ def main():
         
     print(f"使用设备: {DEVICE}")
     
-    full_dataset = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR)
-    total_len = len(full_dataset)
+    train_ds_full = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR, split='train')
+    val_ds_full = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR, split='val')
+
+    total_len = len(train_ds_full)
     print(f"数据总数: {total_len}")
     
     train_size = int(0.7 * total_len)
@@ -125,10 +129,15 @@ def main():
     
     generator = torch.Generator().manual_seed(37)
     
-    train_dataset, val_dataset, test_dataset = random_split(
-        full_dataset, [train_size, val_size, test_size],
+    train_sub, val_sub, test_sub = random_split(
+        train_ds_full, 
+        [train_size, val_size, test_size],
         generator=generator
     )
+
+    train_dataset = train_sub 
+    val_dataset = Subset(val_ds_full, val_sub.indices)
+    test_dataset = Subset(val_ds_full, test_sub.indices)
     
     train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=NUM_WORKERS)
     val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=NUM_WORKERS)
@@ -152,7 +161,7 @@ def main():
         
         print(f"Total | Loss: {t_loss:.4f}(T) / {v_loss:.4f}(V) | F1: {v_f1_t:.4f}")
         print(f"Spec  | Loss: {t_spec:.4f}(T) / {v_spec:.4f}(V) | F1: {v_f1_s:.4f}")
-        print(f"Reg   | Loss: {t_reg:.4f}(T) / {v_reg:.4f}(V) | F1: {v_f1_r:.4f}")
+        print(f"Reg   | Loss: {t_reg:.4f}(T) / {v_reg:.4f}(V)   | F1: {v_f1_r:.4f}")
 
         if v_f1_s > best_val_spec_f1:
             best_val_spec_f1 = v_f1_s
@@ -174,7 +183,7 @@ def main():
     t_loss, t_spec, t_reg, t_f1_t, t_f1_s, t_f1_r = eval_epoch(model, test_loader, criterion, DEVICE)
     print(f"Total | Loss: {t_loss:.4f} | F1: {t_f1_t:.4f}")
     print(f"Spec  | Loss: {t_spec:.4f} | F1: {t_f1_s:.4f}")
-    print(f"Reg   | Loss: {t_reg:.4f} | F1: {t_f1_r:.4f}")
+    print(f"Reg   | Loss: {t_reg:.4f}  | F1: {t_f1_r:.4f}")
 
 if __name__ == "__main__":
     main()

@@ -25,7 +25,7 @@ class MultiModalNet(nn.Module):
         
         self.classifier_region = nn.Linear(d_model, num_region)
         
-    def forward(self, images, text_list=None):
+    def forward(self, images, text_list=None, ogm_scale=1.0):
         img_feats = self.image_encoder(images)
         
         is_pure_vision = False
@@ -48,6 +48,9 @@ class MultiModalNet(nn.Module):
                 value = txt_feats,
                 key_padding_mask = padding_mask
             )
+
+            if ogm_scale < 1.0 and attn_output.requires_grad:
+                attn_output.register_hook(lambda grad: grad * ogm_scale)
 
         fused_feats = self.ln(img_feats + attn_output)
         

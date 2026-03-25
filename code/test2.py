@@ -1,4 +1,5 @@
 import os
+import random
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, random_split
@@ -18,8 +19,22 @@ REPORT_CSV = os.path.join(CURRENT_DIR, '..', 'archive', 'indiana_reports.csv')
 LABEL_CSV = os.path.join(CURRENT_DIR, '..', 'dataset_with_labels_2.csv')
 IMG_DIR = os.path.join(CURRENT_DIR, '..', 'archive', 'images', 'images_normalized')
 
-BEST_MODEL_PATH = os.path.join(CURRENT_DIR, '..', 'model_loss_21', 'best_model.pth')
+BEST_MODEL_PATH = os.path.join(CURRENT_DIR, '..', 'model_loss_21_0', 'best_model.pth')
 
+def seed_everything(seed=37):
+    # 1. 锁死 Python 自带的随机库
+    random.seed(seed)
+    # 2. 锁死 Numpy 的随机库
+    np.random.seed(seed)
+    # 3. 锁死 PyTorch 的随机库 (CPU & GPU)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed) # 如果你有多张显卡
+    # 4. 锁死 CUDNN 的卷积算法（极端严谨的学术要求）
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    
 def eval_image_shuffle(model, loader, criterion, device):
     model.eval()
     total_loss = 0
@@ -41,16 +56,16 @@ def eval_image_shuffle(model, loader, criterion, device):
             #for i in range(len(final_txt_input)):
             #    final_txt_input[i] = ""
 
-            #idx = torch.randperm(imgs.size(0)).to(device)
-            #shuffled_imgs = imgs[idx]
+            idx = torch.randperm(imgs.size(0)).to(device)
+            shuffled_imgs = imgs[idx]
             
-            #out_spec, out_reg = model(shuffled_imgs, batch_txts)
+            out_spec, out_reg = model(shuffled_imgs, batch_txts)
             
             #out_spec, out_reg = model(imgs, final_txt_input)
 
-            black_imgs = torch.zeros_like(batch_imgs).to(device)
+            #black_imgs = torch.zeros_like(batch_imgs).to(device)
 
-            out_spec, out_reg = model(black_imgs, batch_txts)
+            #out_spec, out_reg = model(black_imgs, batch_txts)
             
             loss_spec = criterion(out_spec, lbl_spec)
             loss_reg = criterion(out_reg, lbl_reg)
@@ -86,7 +101,7 @@ def eval_image_shuffle(model, loader, criterion, device):
     return avg_loss, avg_spec, avg_reg, f1_t, f1_s, f1_r
 
 def main():
-
+    seed_everything(37)
     full_dataset = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR,split='val')
     total_len = len(full_dataset)
     train_size = int(0.7 * total_len)

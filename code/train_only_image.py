@@ -17,9 +17,9 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 BATCH_SIZE = 16
 LEARNING_RATE = 5e-5
 NUM_EPOCHS = 100
-PATIENCE = 20
+PATIENCE = 10
 NUM_WORKERS = 4
-alpha = 1.0 
+alpha = 2.0 
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORT_CSV = os.path.join(CURRENT_DIR, '..', 'archive', 'indiana_reports.csv')

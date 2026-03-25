@@ -9,7 +9,7 @@ import numpy as np
 from sklearn.metrics import f1_score
 
 from dataset import ChestXrayDataset
-from model_concat import MultiModalNet_Concat
+from model import MultiModalNet
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
@@ -19,24 +19,27 @@ LEARNING_RATE = 5e-5
 NUM_EPOCHS = 100
 PATIENCE = 20
 NUM_WORKERS = 4
-alpha = 2.0
-lam = 1.0
+alpha = 3.0
+lam = 1.5
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORT_CSV = os.path.join(CURRENT_DIR, '..', 'archive', 'indiana_reports.csv')
 LABEL_CSV = os.path.join(CURRENT_DIR, '..', 'dataset_with_labels_2.csv')
 IMG_DIR = os.path.join(CURRENT_DIR, '..', 'archive', 'images', 'images_normalized')
-SAVE_DIR = os.path.join(CURRENT_DIR, '..', 'model_concat_1')
+SAVE_DIR = os.path.join(CURRENT_DIR, '..', 'model_loss_31_15_2')
 
-# 画图函数与主模型完全一致
 def plot_analysis(history, save_path):
     epochs = list(range(1, len(history['train_loss']) + 1))
+    
     fig, axes = plt.subplots(4, 2, figsize=(15, 16))
     
     def annotate_points(ax, x, y, mode='max', color='red'):
-        if len(y) == 0: return 
+        if len(y) == 0: return # 防止空数据报错
         y = np.array(y)
-        idx = np.argmax(y) if mode == 'max' else np.argmin(y)
+        if mode == 'max':
+            idx = np.argmax(y)
+        else:
+            idx = np.argmin(y)
         ax.annotate(f'{y[idx]:.4f}', (x[idx], y[idx]), 
                     xytext=(0, 10), textcoords='offset points', 
                     ha='center', fontsize=9, color=color, fontweight='bold',
@@ -47,58 +50,59 @@ def plot_analysis(history, save_path):
                         xytext=(0, 10), textcoords='offset points', 
                         ha='center', fontsize=8, color='black')
 
-    # 1. Total (MM)
+    # --- 1. Total (MM) ---
     ax = axes[0, 0]
     ax.plot(epochs, history['train_loss'], label='Train Loss', color='blue', alpha=0.6)
     ax.plot(epochs, history['val_loss'], label='Val Loss', color='red', linestyle='--')
     annotate_points(ax, epochs, history['val_loss'], mode='min')
-    ax.set_title('Total Loss (Concat)')
+    ax.set_title('Total Loss (Multimodal)')
     ax.legend()
     ax.grid(True)
     
     ax = axes[0, 1]
     ax.plot(epochs, history['val_f1_total'], label='Val Total F1', color='red', marker='.')
     annotate_points(ax, epochs, history['val_f1_total'], mode='max')
-    ax.set_title('Total F1 (Concat)')
+    ax.set_title('Total F1 (Multimodal)')
     ax.set_ylim(0, 1)
     ax.legend()
     ax.grid(True)
     
-    # 2. Spec (MM)
+    # --- 2. Spec (MM) ---
     ax = axes[1, 0]
     ax.plot(epochs, history['train_spec'], label='Train Spec', color='green', alpha=0.6)
     ax.plot(epochs, history['val_spec'], label='Val Spec', color='orange', linestyle='--')
     annotate_points(ax, epochs, history['val_spec'], mode='min')
-    ax.set_title('Specific Loss (Concat)')
+    ax.set_title('Specific Loss (Multimodal)')
     ax.legend()
     ax.grid(True)
     
     ax = axes[1, 1]
     ax.plot(epochs, history['val_f1_spec'], label='Val Spec F1', color='orange', marker='.')
     annotate_points(ax, epochs, history['val_f1_spec'], mode='max')
-    ax.set_title('Specific F1 (Concat)')
+    ax.set_title('Specific F1 (Multimodal)')
     ax.set_ylim(0, 1)
     ax.legend()
     ax.grid(True)
 
-    # 3. Reg (MM)
+    # --- 3. Reg (MM) ---
     ax = axes[2, 0]
     ax.plot(epochs, history['train_reg'], label='Train Reg', color='purple', alpha=0.6)
     ax.plot(epochs, history['val_reg'], label='Val Reg', color='pink', linestyle='--')
     annotate_points(ax, epochs, history['val_reg'], mode='min')
-    ax.set_title('Region Loss (Concat)')
+    ax.set_title('Region Loss (Multimodal)')
     ax.legend()
     ax.grid(True)
     
     ax = axes[2, 1]
     ax.plot(epochs, history['val_f1_reg'], label='Val Reg F1', color='pink', marker='.')
     annotate_points(ax, epochs, history['val_f1_reg'], mode='max')
-    ax.set_title('Region F1 (Concat)')
+    ax.set_title('Region F1 (Multimodal)')
     ax.set_ylim(0, 1)
     ax.legend()
     ax.grid(True)
     
-    # 4. Vision Only
+    # --- 4. Vision Only ---
+    # 左边画 Spec (具体疾病) 的纯视觉 F1
     ax = axes[3, 0]
     ax.plot(epochs, history['val_f1_vis_spec'], label='Vis Only Spec F1', color='brown', marker='o')
     annotate_points(ax, epochs, history['val_f1_vis_spec'], mode='max')
@@ -107,6 +111,7 @@ def plot_analysis(history, save_path):
     ax.legend()
     ax.grid(True)
     
+    # 右边画 Reg (区域) 的纯视觉 F1
     ax = axes[3, 1]
     ax.plot(epochs, history['val_f1_vis_reg'], label='Vis Only Reg F1', color='brown', marker='o')
     annotate_points(ax, epochs, history['val_f1_vis_reg'], mode='max')
@@ -122,49 +127,103 @@ def plot_analysis(history, save_path):
 
 def train_epoch(model, loader, criterion, optimizer, device):
     model.train()
-    total_loss, total_spec, total_reg = 0, 0, 0
+    total_loss = 0
+    total_spec = 0
+    total_reg = 0
     
     loop = tqdm(loader, desc="Training", leave=False)
+    
     for batch_imgs, batch_txts, batch_lbl_spec, batch_lbl_reg in loop:
         imgs = batch_imgs.to(device)
         lbl_spec = batch_lbl_spec.to(device)
         lbl_reg = batch_lbl_reg.to(device)
         
-        # --- 1. 多模态融合任务 ---
         out_spec_mm, out_reg_mm = model(imgs, batch_txts)
+        
         loss_spec_mm = criterion(out_spec_mm, lbl_spec)
         loss_reg_mm = criterion(out_reg_mm, lbl_reg)
-        loss_mm = alpha * loss_spec_mm + loss_reg_mm
+        #loss_mm = alpha * loss_spec_mm + loss_reg_mm
         
-        # --- 2. 纯视觉单模态惩罚任务 ---
         empty_txts = [""] * len(batch_txts) 
         out_spec_vis, out_reg_vis = model(imgs, empty_txts)
+        
         loss_spec_vis = criterion(out_spec_vis, lbl_spec)
         loss_reg_vis = criterion(out_reg_vis, lbl_reg)
-        loss_vis = alpha * loss_spec_vis + loss_reg_vis
+        #loss_vis = alpha * loss_spec_vis + loss_reg_vis
         
-        # 综合 Loss
-        loss = loss_mm + lam * loss_vis
+        # 将属于 Spec 的 Loss 打包 (主线任务)
+        loss_spec_total = alpha * loss_spec_mm + lam * alpha * loss_spec_vis
+        # 将属于 Reg 的 Loss 打包 (辅助任务)
+        loss_reg_total = loss_reg_mm + lam * loss_reg_vis
         
         optimizer.zero_grad()
-        loss.backward()
+        
+        # --- 2. 主任务 (Spec) 先反向传播 ---
+        # retain_graph=True 是为了让后面还能继续反向传播
+        loss_spec_total.backward(retain_graph=True)
+        
+        # 把主任务的绝对权威梯度“抄下来”并暂存
+        grad_spec = []
+        for p in model.parameters():
+            if p.grad is not None:
+                grad_spec.append(p.grad.clone())
+                p.grad.zero_()  # 暂存后清零，给 Reg 腾出计算空间
+            else:
+                grad_spec.append(None)
+                
+        # --- 3. 辅助任务 (Reg) 反向传播 ---
+        loss_reg_total.backward()
+        
+        # --- 4. 【核心黑科技：PCGrad 梯度外科手术】 ---
+        for i, p in enumerate(model.parameters()):
+            if p.grad is not None and grad_spec[i] is not None:
+                g_s = grad_spec[i]  # 找病的梯度 (神圣不可侵犯)
+                g_r = p.grad        # 找位置的梯度
+                
+                # 计算两个梯度向量的内积 (点乘)
+                dot = torch.dot(g_s.flatten(), g_r.flatten())
+                
+                if dot < 0:
+                    # 【发生负迁移！】夹角大于90度，方向冲突
+                    # 把 g_r 强行投影到 g_s 的法平面上，切掉反骨部分
+                    g_s_norm_sq = torch.sum(g_s**2) + 1e-8
+                    g_r_proj = g_r.flatten() - (dot / g_s_norm_sq) * g_s.flatten()
+                    
+                    # 最终的梯度 = 原汁原味的 Spec + 阉割后的 Reg
+                    p.grad = g_s + g_r_proj.view_as(p)
+                else:
+                    # 【目标一致！】直接相加，互相促进
+                    p.grad = g_s + g_r
+            elif grad_spec[i] is not None:
+                # 只有 Spec 产生了梯度的情况
+                p.grad = grad_spec[i]
+                
+        # --- 5. 手术完成，步进更新参数 ---
         optimizer.step()
         
-        total_loss += loss.item()
+        # 记录日志
+        current_loss = loss_spec_total.item() + loss_reg_total.item()
+        total_loss += current_loss
         total_spec += loss_spec_mm.item()
         total_reg += loss_reg_mm.item()
-        loop.set_postfix(loss=loss.item())
+        
+        loop.set_postfix(loss=current_loss)
     
     n = len(loader)   
     return total_loss/n, total_spec/n, total_reg/n
 
 def eval_epoch(model, loader, criterion, device):
     model.eval()
-    total_loss_mm, total_spec_mm, total_reg_mm = 0, 0, 0
+    total_loss_mm = 0
+    total_spec_mm = 0
+    total_reg_mm = 0
+    total_loss_vis = 0
     
     preds_spec_mm, labels_spec = [], []
     preds_reg_mm, labels_reg = [], []
-    preds_spec_vis, preds_reg_vis = [], []
+    
+    preds_spec_vis = []
+    preds_reg_vis = []
 
     with torch.no_grad():
         loop = tqdm(loader, desc="Validating", leave=False)
@@ -193,10 +252,20 @@ def eval_epoch(model, loader, criterion, device):
             empty_txts = [""] * len(batch_txts)
             out_spec_vis, out_reg_vis = model(imgs, empty_txts)
             
+            loss_spec_vis = criterion(out_spec_vis, lbl_spec)
+            loss_reg_vis = criterion(out_reg_vis, lbl_reg)
+            loss_vis = alpha * loss_spec_vis + loss_reg_vis 
+            
+            total_loss_vis += loss_vis.item()
+
             preds_spec_vis.append((torch.sigmoid(out_spec_vis) > 0.5).float().cpu().numpy())
             preds_reg_vis.append((torch.sigmoid(out_reg_vis) > 0.5).float().cpu().numpy())
 
     n = len(loader)
+    
+    avg_loss_mm = total_loss_mm / n
+    avg_spec_mm = total_spec_mm / n
+    avg_reg_mm = total_reg_mm / n
     
     L_spec = np.vstack(labels_spec)
     L_reg = np.vstack(labels_reg)
@@ -206,31 +275,47 @@ def eval_epoch(model, loader, criterion, device):
     P_reg_mm = np.vstack(preds_reg_mm)
     f1_s_mm = f1_score(L_spec, P_spec_mm, average='micro')
     f1_r_mm = f1_score(L_reg, P_reg_mm, average='micro')
-    f1_t_mm = f1_score(np.hstack([L_spec, L_reg]), np.hstack([P_spec_mm, P_reg_mm]), average='micro')
+    
+    P_total_mm = np.hstack([P_spec_mm, P_reg_mm])
+    L_total = np.hstack([L_spec, L_reg])
+    f1_t_mm = f1_score(L_total, P_total_mm, average='micro')
     
     # Vis Metrics
     P_spec_vis = np.vstack(preds_spec_vis)
     P_reg_vis = np.vstack(preds_reg_vis)
+    
     f1_s_vis = f1_score(L_spec, P_spec_vis, average='micro')
     f1_r_vis = f1_score(L_reg, P_reg_vis, average='micro')
     
-    return total_loss_mm/n, total_spec_mm/n, total_reg_mm/n, f1_t_mm, f1_s_mm, f1_r_mm, f1_s_vis, f1_r_vis
+    # 返回 8 个值
+    return avg_loss_mm, avg_spec_mm, avg_reg_mm, f1_t_mm, f1_s_mm, f1_r_mm, f1_s_vis, f1_r_vis
 
 def main():
     os.makedirs(SAVE_DIR, exist_ok=True)
+
     print(f"使用设备: {DEVICE}")
     
     train_ds_full = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR, split='train')
     val_ds_full = ChestXrayDataset(REPORT_CSV, LABEL_CSV, IMG_DIR, split='val')
 
     total_len = len(train_ds_full)
+    print(f"数据总数: {total_len}")
     
     train_size = int(0.7 * total_len)
     val_size = int(0.2 * total_len) 
     test_size = total_len - train_size - val_size 
     
-    generator = torch.Generator().manual_seed(37) # 强行对齐种子37！
-    train_sub, val_sub, test_sub = random_split(train_ds_full, [train_size, val_size, test_size], generator=generator)
+    print(f"训练集: {train_size} 张")
+    print(f"验证集: {val_size} 张")
+    print(f"测试集: {test_size} 张")
+    
+    generator = torch.Generator().manual_seed(37)
+    
+    train_sub, val_sub, test_sub = random_split(
+        train_ds_full, 
+        [train_size, val_size, test_size],
+        generator=generator
+    )
 
     train_dataset = train_sub 
     val_dataset = Subset(val_ds_full, val_sub.indices)
@@ -240,14 +325,20 @@ def main():
     val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=NUM_WORKERS)
     test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=NUM_WORKERS)
     
-    model = MultiModalNet_Concat().to(DEVICE)
+    model = MultiModalNet().to(DEVICE)
     criterion = nn.BCEWithLogitsLoss()
 
-    # 完全对齐冻结层逻辑
+    frozen_layers = 0
+    trainable_layers = 0
+    
     for name, param in model.image_encoder.named_parameters():
         param.requires_grad = False
+    
         if "layer.9" in name or "layer.10" in name or "layer.11" in name or "layernorm" in name or "pooler" in name:
             param.requires_grad = True
+            trainable_layers += 1
+        else:
+            frozen_layers += 1
 
     optimizer = optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()), lr=LEARNING_RATE)
     
@@ -268,6 +359,7 @@ def main():
         print(f"\n--- Epoch {epoch+1}/{NUM_EPOCHS} ---")
 
         t_loss, t_spec, t_reg = train_epoch(model, train_loader, criterion, optimizer, DEVICE)
+        
         v_loss, v_spec, v_reg, v_f1_t, v_f1_s, v_f1_r, v_f1_s_vis, v_f1_r_vis = eval_epoch(model, val_loader, criterion, DEVICE)    
         
         print(f"Total(MM) | Loss: {t_loss:.4f}(T) / {v_loss:.4f}(V) | F1: {v_f1_t:.4f}")
@@ -279,11 +371,11 @@ def main():
         history['train_loss'].append(t_loss)
         history['val_loss'].append(v_loss)
         history['val_f1_total'].append(v_f1_t)
-
+        
         history['train_spec'].append(t_spec)
         history['val_spec'].append(v_spec)
         history['val_f1_spec'].append(v_f1_s)
-
+        
         history['train_reg'].append(t_reg)
         history['val_reg'].append(v_reg)
         history['val_f1_reg'].append(v_f1_r)
@@ -294,14 +386,16 @@ def main():
         plot_analysis(history, plot_path)
 
         combined_score = 0.6 * v_f1_s + 0.4 * v_f1_s_vis
+        
         if combined_score > best_combined_score:
             best_combined_score = combined_score
             torch.save(model.state_dict(), best_model_path)
             print(f"验证集表现提升，综合得分: {combined_score:.4f}，已保存最佳模型!")
             
+        # --- 2. 早停逻辑 (只看 Val Loss) ---
         if v_loss < best_val_loss:
             best_val_loss = v_loss
-            patience_counter = 0
+            patience_counter = 0  # Loss 降了，正常训练
         else:
             patience_counter += 1
             print(f"Loss 未下降 ({patience_counter}/{PATIENCE})")
@@ -312,10 +406,10 @@ def main():
     print("\n===============Test===============")
     model.load_state_dict(torch.load(best_model_path))
     t_loss, t_spec, t_reg, t_f1_t, t_f1_s, t_f1_r, t_f1_s_vis, t_f1_r_vis = eval_epoch(model, test_loader, criterion, DEVICE)    
-
-    print(f"Total(MM) | F1: {t_f1_t:.4f}")
-    print(f"Spec (MM) | F1: {t_f1_s:.4f}")
-    print(f"Reg  (MM) | F1: {t_f1_r:.4f}")
+        
+    print(f"Total(MM) | Loss: {t_loss:.4f} | F1: {t_f1_t:.4f}")
+    print(f"Spec (MM) | Loss: {t_spec:.4f} | F1: {t_f1_s:.4f}")
+    print(f"Reg  (MM) | Loss: {t_reg:.4f}  | F1: {t_f1_r:.4f}")
     print(f"Spec (Vis)| F1: {t_f1_s_vis:.4f}")
     print(f"Reg  (Vis)| F1: {t_f1_r_vis:.4f}")
 
